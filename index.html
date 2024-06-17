@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡BootCamp!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./imagenes/logopag.png">
+    <script src="funciones.js" defer></script>
+</head>
+<body class="dark-mode">
+    
+    <div class="contenedor">
+    <header>
+        <div id="logo">
+            <img src="./imagenes/logopag.png">
+        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#product">Cursos</a></li>
+            <li><a href="#frameW">FrameWorks</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="modo">
+        <button id="modo" onclick="toggleMode()">Claro/Oscuro</button>
+      </div>
+    </header>
+    <section>
+        <h1>¡Bienvenidos al Bootcamp de Programación!</h1>
+        <p>En nuestro bootcamp, te sumergirás en el mundo de la programación con cursos prácticos y mentoría personalizada. <br>Desde los fundamentos hasta la inteligencia artificial, ofrecemos una amplia gama de cursos para todos los niveles. Únete a nuestra vibrante comunidad y prepárate para impulsar tu carrera en tecnología. <br>¡Bienvenidos a una experiencia de aprendizaje transformadora!</p>
+        <h3> ¿Que curso quieres aprender? </h3>
+    </section>
+    
+
+    <div class="container">
+        <!-- Aquí van los productos -->
+        
+        <div class="product" id="product">
+            <h2></h2>
+            <div class="logo"><img src="./imagenes/htmllogo.png"></div>
+            <p></p>
+            <table>
+                <tr>
+                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                </tr>
+            </table>
+            <div class="precio">$5.000</div>
+            <div class="verMas">INFORMACION</div> 
+        </div>
+        <div class="product">
+            <div class="logo"><img src="./imagenes/csslogo.png"></div>
+            <p></p>
+            <table>
+                <tr>
+                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                </tr>
+            </table>
+            <div class="precio">$6.000</div>
+            <div class="verMas">INFORMACION</div>
+        </div>
+        <div class="product">
+            <div class="logo"><img src="./imagenes/js.png"></div>
+            <p></p>
+            <table>
+                <tr>
+                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                </tr>
+            </table>
+            <div class="precio">$12.000</div>
+            <div class="verMas">INFORMACION</div>
+        </div>
+        <div class="product">
+            <div class="logo"><img id="php"src="./imagenes/PHP-logo.png"></div>
+            <p></p>
+            <table>
+                <tr>
+                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                </tr>
+            </table>
+            <div class="precio">$8.000</div>
+            <div class="verMas">INFORMACION</div>
+        </div>
+        <div class="product">
+            <div class="logo"><img src="./imagenes/sqllogo.png"></div>
+            <p></p>
+            <table>
+                <tr>
+                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                </tr>
+            </table>
+            <div class="precio">$15.000</div>
+            <div class="verMas">INFORMACION</div>
+        </div>
+        <div class="product">
+            <div class="logo"><img src="./imagenes/python.png"></div>
+            <p></p>
+            <table>
+                <tr>
+                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                </tr>
+            </table>
+            <div class="precio">$2.000</div>
+            <div class="verMas">INFORMACION</div>
+        </div>
+        <div class="product">
+            <h2></h2>
+            <div class="logo"><img src="./imagenes/java.png"></div>
+            <p></p>
+            <table>
+                <tr>
+                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                </tr>
+            </table>
+            <div class="precio">$11.000</div>
+            <div class="verMas">INFORMACION</div> 
+        </div>
+        <div class="product">
+            <h2></h2>
+            <div class="logo"><img src="./imagenes/cSharp.png"></div>
+            <p></p>
+            <table>
+                <tr>
+                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                </tr>
+            </table>
+            <div class="precio">$9.000</div>
+            <div class="verMas">INFORMACION</div> 
+        </div>
+        <!-- Agrega más productos aquí -->
+        <div class="containerFramework" id="frameW">
+            <h4> FRAMEWORKS y otras tecnologías </h4>
+            <div class="product">
+                <h2></h2>
+                <div class="logo"><img src="./imagenes/angular.png"></div>
+                <p></p>
+                <table>
+                    <tr>
+                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                    </tr>
+                </table>
+                <div class="precio">$9.000</div>
+                <div class="verMas">INFORMACION</div> 
+            </div>
+            <div class="product">
+                <h2></h2>
+                <div class="logo"><img src="./imagenes/react.png"></div>
+                <p></p>
+                <table>
+                    <tr>
+                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                    </tr>
+                </table>
+                <div class="precio">$9.000</div>
+                <div class="verMas">INFORMACION</div> 
+            </div>
+            <div class="product">
+                <h2></h2>
+                <div class="logo"><img src="./imagenes/nodejs.png"></div>
+                <p></p>
+                <table>
+                    <tr>
+                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                    </tr>
+                </table>
+                <div class="precio">$9.000</div>
+                <div class="verMas">INFORMACION</div> 
+            </div>
+            <div class="product">
+                <h2></h2>
+                <div class="logo"><img src="./imagenes/github.png"></div>
+                <p></p>
+                <table>
+                    <tr>
+                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                    </tr>
+                </table>
+                <div class="precio">$9.000</div>
+                <div class="verMas">INFORMACION</div> 
+            </div>
+            <div class="product">
+                <h2></h2>
+                <div class="logo"><img src="./imagenes/vscode.png"></div>
+                <p></p>
+                <table>
+                    <tr>
+                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                    </tr>
+                </table>
+                <div class="precio">$9.000</div>
+                <div class="verMas">INFORMACION</div> 
+            </div>
+            <div class="consulta">
+                <img src="imagenes/robot.png">
+                <div>Dejanos tu consulta! 
+                    <label for=""></label>
+                    <input type="text">
+                    <table id="formulario">
+                        <tr>
+                            <th>Ingresa tu mail</th>
+                            <th> <input id="mail" type="text"></th>
+                        </tr>
+                        <tr>
+                            <th>ALGO </th>
+                            <th><input id="mail" type="text"> </th>
+                        </tr>
+                    </table>
+                    
+                </div>
+                
+            </div>
+    </div>
+   
+
+    <footer>
+        <p>&copy; 2024 Tienda en línea</p>
+
+    </footer>
+</div>
+</body>
+</html>
