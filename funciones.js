@@ -28,13 +28,66 @@ function claroOscuro() {
 
 function toggleMode() {
     var body = document.body;
+    var imagen = document.getElementById("noche");
 
     // Alternar entre las clases light-mode y dark-mode
     if (body.classList.contains('light-mode')) {
         body.classList.remove('light-mode');
         body.classList.add('dark-mode');
+        imagen.src = "imagenes/day1.png";
+
+        localStorage.setItem('tema', 'oscuro');
+    
     } else {
+        imagen.src = "imagenes/night1.png"
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
+        localStorage.setItem('tema', 'claro');
     }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var temaGuardado = localStorage.getItem('tema');
+    if (temaGuardado === 'oscuro') {
+        document.body.classList.add('dark-mode');
+        document.getElementById("noche").src = "imagenes/day1.png";
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById("noche").src = "imagenes/night1.png";
+    }
+});
+const html = document.getElementById("html");
+const css = document.getElementById("css");
+const js = document.getElementById("js");
+function irAjs(){
+    window.location.href = "./infoJs.html"
+}
+function irAhtml (){
+    window.location.href = "./infohtml.html"
+}
+function irAcss(){
+    window.location.href = "./infoCss.html"
+}
+css.addEventListener("click",irAcss);
+js.addEventListener("click",irAjs);
+html.addEventListener("click",irAhtml);
+
+const botonCarrito = document.getElementById("boton-carro");
+const carritoContenedor = document.getElementById("carrito-contendor")
+botonCarrito.addEventListener("click", function(){
+    carritoContenedor.classList.toggle("hidden");
+});
+
+const botonHTML = document.getElementById("botonHTML");
+const carrito = document.getElementById("cart");
+
+
+botonHTML.addEventListener("click",agregarProducto);
+
+function agregarProducto (){
+    let producto;
+    producto = "Curso de HTML."
+    carrito.textContent =  producto;
 }

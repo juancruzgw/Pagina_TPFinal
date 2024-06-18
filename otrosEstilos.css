@@ -1,0 +1,200 @@
+
+
+body.light-mode * {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-mode .contenedor *{
+    background-color: #ffffff; 
+    color: #000000;
+}
+
+
+
+body.light-mode nav * {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode * {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.dark-mode .contenedor * {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+
+body.dark-mode nav *{
+    background-color: #111111;
+    color: #ffffff;
+}
+
+
+
+.contendor {
+    width: 80%;
+    
+}
+
+#htmlinfo {
+
+        width: 80%;
+        margin: 40px;
+        height: 200px;
+        padding: 35px;
+        margin-top: 20px;
+        color: #ccc;
+        font-family: italic;
+        display: flex;
+        justify-content: space-around;
+       
+
+}
+#htmlinfo h1 {
+    font-size: 40px;
+}
+#htmlinfo{
+    margin: auto
+}
+#htmlinfo img {
+    max-width: 200px;
+    max-height: 200px;
+
+}
+#htmlinfo img:hover {
+    transition: 0.3s ease;
+    scale: 1.2;
+}
+#main {
+   
+    width: 80%;
+    color: rgb(219, 219, 219);
+    padding: 50px;
+    margin: auto;
+    display: flex;
+    font-size: 30px;
+}
+section {
+    position: relative;
+    left: 60px;
+    bottom: 60px;
+    
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+section h2 {
+    width: 200px;
+    font-size: 30px;
+}
+section li {
+    margin: 30px;
+    margin-top: 40px;
+    width: auto;
+    border: 1px solid;
+    border-radius: 14px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s ease;
+}
+section li:hover {
+    scale: 1.7;
+   
+}
+#dato {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-size: 25px;
+    margin-top: 40px;
+}
+#dato img {
+    max-width: 300px;
+    max-height: 300px;
+}
+#dato #textoHTML{
+    width: 300px;
+}
+
+
+/** css*/
+body.light-mode * {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-mode .contenedor *{
+    background-color: #ffffff; 
+    color: #000000;
+}
+
+
+
+body.light-mode nav * {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode * {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.dark-mode #cssinfo * {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+
+body.dark-mode nav *{
+    background-color: #111111;
+    color: #ffffff;
+}
+
+#cssinfo {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    color: white;
+    width: 80%;
+
+}
+#cssinfo img {
+    max-width: 200px;
+    max-height: 200px;
+}
+#mainCss {
+    margin: auto;
+    width: 80%;
+    
+}
+#mainCss p {
+   
+    font-size: 30px;
+}
+#artist {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+#artist img {
+    max-width: 370px;
+    max-height: 370px;
+}
+#artist #textArtist{
+    width: 250px;
+    font-size: 20px;
+    color: white;
+    margin-top: 50px;
+}
+
