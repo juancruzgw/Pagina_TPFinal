@@ -7,7 +7,10 @@ body {
     margin: 30px 0;
     font-family: sans-serif;
     background-image: url(./imagenes/backg.jpg);
-    transition: 0.5s;
+    
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-position: center;
    
    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), url('imagenes/backg.jpg');
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el fondo 
@@ -43,12 +46,17 @@ body {
     padding: 20px;
     z-index: 1000;
     margin-top: 70px;
+    background-color: #111111;
 
+}
+#cart h3, span {
+    background-color: #111111;
 }
 #cart{
     border: 1px solid;
     border-radius: 7px;
     height: 60px;
+    background-color: #111111;
 }
 .hidden {
     
@@ -141,7 +149,7 @@ nav ul li a:hover {
     background-color: #111111;
     margin: auto;
     width: 1100px;
-    height: 3000px ;
+    height: 3100px ;
     display:  block;
     border-radius: 20px;
    /* color: #ffffff;*/
@@ -243,14 +251,15 @@ section h3 {
     margin-top: 20px;
     width: 80%;
     margin: 190px auto;
-  
-    height: 1000px;
+    
+    height: 1100px;
    /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));*/
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+
    
 }
 .containerFramework h4 {
@@ -370,6 +379,13 @@ section h3 {
    
    
 }
+.consulta div button {
+    border-radius: 5px;
+    font-size: 10px;
+    border-color: rgb(0, 0, 0);
+    background-color: #333;
+    width: 160px;
+}
 
 footer {
     background-color: #333;
@@ -393,8 +409,20 @@ footer {
     font-size: 15px;
     width: 180px;
 }
-.consulta FORM table #izq1 .radio {
+.consulta FORM table #izq1 .radio p{
     font-size: 4px;
     margin-top: 20px;
 }
+ #enviado {
+    width: 330px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
 
+footer {
+    position: relative;
+    top: 60px
+}

@@ -91,3 +91,85 @@ function agregarProducto (){
     producto = "Curso de HTML."
     carrito.textContent =  producto;
 }
+
+/** VALIDAR CAMPOS DEL FORMULARIO, DE LA CONSULTA */
+function validarFormularioConsulta() {
+    // Obtener los valores de los campos del formulario usando getElementById
+    var nombre = document.getElementById("nombre");
+    var apellido = document.getElementById("apellido");
+    var email = document.getElementById("email");
+    var rol = document.getElementById("rol");
+    var mensaje = document.getElementById("mensaje");
+    var enviado = document.getElementById("enviado");
+    var respuesta;
+    respuesta  = true;
+    mensaje.style.background = "";
+    nombre.style.background = "";
+    apellido.style.background = "";
+    
+    // Verificar que todos los campos estén llenos
+    if (nombre.value === "" || apellido.value === "" || email.value === "" || rol.value === "-" || mensaje.value === "") {
+       // alert("Por favor, complete todos los campos.");
+        enviado.textContent = "Por favor, complete todos los campos.❌";
+        enviado.style.color = "red"; 
+        respuesta = false;
+        /// pinto el fondo segun cual es el campo que quedo vacio
+        if (nombre.value ===""){
+            nombre.style.background = "lightcoral";
+        }
+        if (apellido.value ===""){
+            apellido.style.background = "lightcoral";
+        }
+        if (email.value ===""){
+            email.style.background = "lightcoral";
+        }else {
+            email.style.background = "";
+        }
+        if (rol.value ===""){
+            rol.style.background = "lightcoral";
+        }else {
+            rol.style.background = "";
+        }
+        
+        if (mensaje.value ===""){
+            mensaje.style.background = "lightcoral";
+        }
+    }
+    
+    // Verificar el formato del correo electrónico
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email.value)) {
+       email.style.backgroundColor = "lightcoral";
+        respuesta = false;
+    } else{
+        //limpio formulario
+        email.style.background = "";
+    }
+    
+    // Verificar que se haya seleccionado una opción de radio
+    var radioSi = document.getElementById("radio-si");
+    var radioNo = document.getElementById("radio-no");
+    
+    if (!radioSi.checked && !radioNo.checked) {
+        
+        respuesta = false;
+    }
+    // que nombre y apellido no haya numeros
+    var numerosPattern = /\d/;
+    if (numerosPattern.test(nombre.value)) {
+        nombre.style.background = "lightcoral";
+        respuesta = false;
+    }
+    if (numerosPattern.test(apellido.value)) {
+        apellido.style.background = "lightcoral";
+        respuesta = false;
+    }
+
+    // Si todas las validaciones pasan, permitir el envío del formulario
+   // respuesta = true;
+  
+    if (respuesta){
+        enviado.textContent = "Se envio todo correctamente.✅"
+        enviado.style.color = "rgb(41, 210, 41)"
+    }
+}

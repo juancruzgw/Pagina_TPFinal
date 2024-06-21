@@ -205,27 +205,27 @@
                     <FORM>
                         <table>
                             <tr>
-                                <td id="izq">Nombre: </td>
+                                <td id="izq" >Nombre: </td>
                                 <td>
-                                    <input type="text" name="nombre">
+                                    <input type="text" id="nombre" name="nombre">
                                 </td>
                             </tr>
                             <tr>
-                                <td id="izq">Apellido: </td>
+                                <td id="izq" >Apellido: </td>
                                 <td>
-                                    <input type="text" name="email">
+                                    <input type="text" id="apellido" name="apellido">
                                 </td>
                             </tr>
                             <tr>
                                 <td id="izq">Email:</td>
                                 <td>
-                                    <input type="text" name="email">
+                                    <input type="text" id="email" name="email">
                                 </td>
                             </tr>
                             <tr>
-                                <td id="izq">Rol </td>
+                                <td id="izq" >Rol </td>
                                 <td>
-                                    <select name="carrera">
+                                    <select id="rol" name="carrera">
                                             <option>-</option>
                                             <option>Estudiante</option>
                                             <option>Profesor</option>
@@ -234,31 +234,35 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td id="izq1">Conocimientos previos de Programación?</td><br>
-                                <td class="radio">
-                                    <input id="radio" type="radio" name="siONo" value="si"> Si 
-                                    <input id="radio" type="radio" name="siONo" value="no"> No 
+                                <td id="izq1" >Conocimientos previos de Programación?</td><br>
+                                <td class="radio" id="radio">
+                                    <input id="radio-si" type="radio" name="siONo" value="si"> Si 
+                                    <input id="radio-no" type="radio" name="siONo" value="no"> No
                                 </td>
                             </tr>
                             <tr>
-                                <td id="izq">Mensaje:</td>
+                                <td id="izq" class="mensaje" ></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <textarea rows="6" cols="40" placeholder="Mensaje"></textarea>
+                                    <textarea rows="6" cols="40" id ="mensaje" name="mensaje" placeholder="Pon aqui tu consulta"></textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="submit" value="Enviar"> 
+                                    <button type="button" onclick="validarFormularioConsulta()">Enviar</button>
                                 </td>
                                 <td>
                                     <input type="reset" value="Vaciar formulario">
                                 </td>
                             </tr>
+                            <tr>
+                                <td></td></tr>
+                            
                         </table>
+                       
                     </FORM>
-                    
+                    <div id="enviado"></div>
                 </div>
                 
             </div>
