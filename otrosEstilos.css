@@ -19,18 +19,18 @@ body.light-mode nav * {
 
 /* Estilos para el modo oscuro */
 body.dark-mode * {
-    background-color: #111111;
+    background-color: #242424;
     color: #ffffff;
 }
 
 .dark-mode .contenedor * {
-    background-color: #111111;
+    background-color: #242424;
     color: #ffffff;
 }
 
 
 body.dark-mode nav *{
-    background-color: #111111;
+    background-color: #242424;
     color: #ffffff;
 }
 
@@ -145,18 +145,18 @@ body.light-mode nav * {
 
 /* Estilos para el modo oscuro */
 body.dark-mode * {
-    background-color: #111111;
+    background-color: #242424;
     color: #ffffff;
 }
 
 .dark-mode #cssinfo * {
-    background-color: #111111;
+    background-color: #242424;
     color: #ffffff;
 }
 
 
 body.dark-mode nav *{
-    background-color: #111111;
+    background-color: #242424;
     color: #ffffff;
 }
 
