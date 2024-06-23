@@ -21,7 +21,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="#product">Cursos</a></li>
                 <li><a href="#frameW">FrameWorks</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#" onclick="abrirModal()">Contacto</a></li>
             </ul>
         </nav>
         <div class="modo">
@@ -30,9 +30,7 @@
         <div id="boton-carro"><img src="imagenes/carritoAzul.png"></div>
         <div id="carrito-contendor" class="hidden">
             <h2>Carrito de Compras</h2>
-            <div id="cart">
-
-            </div>
+            <div id="cart"></div>
             <h3>Total: $<span id="total">0</span></h3>
         </div>
         </header>
@@ -51,66 +49,66 @@
             <p></p>
             <table>
                 <tr>
-                   <button id="botonHTML" type="submit"><img src="./imagenes/carritomas.png"></button>
+                   <button id="botonHTML" type="submit" onclick="agregarProducto('Curso de HTML', 25000, './imagenes/htmllogo.png')"><img src="./imagenes/carritomas.png"></button>
                 </tr>
             </table>
-            <div class="precio">$5.000</div>
-            <div class="verMas"></div> 
+            <div class="precio">$25.000</div>
+            <div class="verMas">+40 HORAS</div> 
         </div>
         <div class="product">
             <div class="logo" id="css"><img src="./imagenes/csslogo.png"></div>
             <p></p>
             <table>
                 <tr>
-                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                   <button id="botoncss" type="submit"onclick="agregarProducto('Curso de CSS', 25000, './imagenes/csslogo.png')"><img src="./imagenes/carritomas.png"></button>
                 </tr>
             </table>
-            <div class="precio">$6.000</div>
-            <div class="verMas"></div>
+            <div class="precio">$25.000</div>
+            <div class="verMas">+40 HORAS</div>
         </div>
         <div class="product">
             <div class="logo" id="js"><img src="./imagenes/js.png"></div>
             <p></p>
             <table>
                 <tr>
-                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                   <button id="botonJS"type="submit" onclick="agregarProducto('Curso de JavaScript', 50000, './imagenes/js.png')"><img src="./imagenes/carritomas.png"></button>
                 </tr>
             </table>
-            <div class="precio">$12.000</div>
-            <div class="verMas"></div>
+            <div class="precio">$50.000</div>
+            <div class="verMas">+120 HORAS</div>
         </div>
         <div class="product">
             <div class="logo"><img id="php"src="./imagenes/PHP-logo.png"></div>
             <p></p>
             <table>
                 <tr>
-                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                   <button id="botonPHP" type="submit" onclick="agregarProducto('Curso de PHP', 40000, './imagenes/PHP-logo.png')"><img src="./imagenes/carritomas.png"></button>
                 </tr>
             </table>
-            <div class="precio">$8.000</div>
-            <div class="verMas">INFORMACION</div>
+            <div class="precio">$40.000</div>
+            <div class="verMas"> +100 HORAS </div>
         </div>
         <div class="product">
             <div class="logo"><img src="./imagenes/sqllogo.png"></div>
             <p></p>
             <table>
                 <tr>
-                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                   <button id="botonSQL" type="submit" onclick="agregarProducto('Curso de SQL', 30000, './imagenes/sqllogo.png')"><img src="./imagenes/carritomas.png"></button>
                 </tr>
             </table>
-            <div class="precio">$15.000</div>
-            <div class="verMas">INFORMACION</div>
+            <div class="precio">$30.000</div>
+            <div class="verMas">+40 HORAS</div>
         </div>
         <div class="product">
             <div class="logo"><img src="./imagenes/python.png"></div>
             <p></p>
             <table>
                 <tr>
-                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                   <button id="botonPY" type="submit" onclick="agregarProducto('Curso de Python', 40000, './imagenes/python.png')"><img src="./imagenes/carritomas.png"></button>
                 </tr>
             </table>
-            <div class="precio">$2.000</div>
-            <div class="verMas">INFORMACION</div>
+            <div class="precio">$40.000</div>
+            <div class="verMas">+120 HORAS</div>
         </div>
         <div class="product">
             <h2></h2>
@@ -118,11 +116,11 @@
             <p></p>
             <table>
                 <tr>
-                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                   <button id="botonJava" type="submit" onclick="agregarProducto('Curso de Java', 50000, './imagenes/java.png')"><img src="./imagenes/carritomas.png"></button>
                 </tr>
             </table>
-            <div class="precio">$11.000</div>
-            <div class="verMas">INFORMACION</div> 
+            <div class="precio">$50.000</div>
+            <div class="verMas">+120 HORAS</div> 
         </div>
         <div class="product">
             <h2></h2>
@@ -130,11 +128,11 @@
             <p></p>
             <table>
                 <tr>
-                   <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                   <button id="botonCsharp" type="submit" onclick="agregarProducto('Curso de C#', 35000, './imagenes/cSharp.png')"><img src="./imagenes/carritomas.png"></button>
                 </tr>
             </table>
-            <div class="precio">$9.000</div>
-            <div class="verMas">INFORMACION</div> 
+            <div class="precio">$35.000</div>
+            <div class="verMas">+80 HORAS</div> 
         </div>
         
         <div class="containerFramework" id="frameW">
@@ -145,11 +143,11 @@
                 <p></p>
                 <table>
                     <tr>
-                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                       <button id="botonAng" type="submit" onclick="agregarProducto('Curso de Angular', 22500, './imagenes/angular.png')"><img src="./imagenes/carritomas.png"></button>
                     </tr>
                 </table>
-                <div class="precio">$9.000</div>
-                <div class="verMas">INFORMACION</div> 
+                <div class="precio">$22.500</div>
+                <div class="verMas">+30 HORAS</div> 
             </div>
             <div class="product">
                 <h2></h2>
@@ -157,11 +155,11 @@
                 <p></p>
                 <table>
                     <tr>
-                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                       <button id="botonReact" type="submit" onclick="agregarProducto('Curso de React', 22500, './imagenes/react.png')"><img src="./imagenes/carritomas.png"></button>
                     </tr>
                 </table>
-                <div class="precio">$9.000</div>
-                <div class="verMas">INFORMACION</div> 
+                <div class="precio">$22.500</div>
+                <div class="verMas">+30 HORAS</div> 
             </div>
             <div class="product">
                 <h2></h2>
@@ -169,11 +167,11 @@
                 <p></p>
                 <table>
                     <tr>
-                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                       <button id="botonNode" type="submit" onclick="agregarProducto('Curso de NodeJS', 17000, './imagenes/nodejs.png')"><img src="./imagenes/carritomas.png"></button>
                     </tr>
                 </table>
-                <div class="precio">$9.000</div>
-                <div class="verMas">INFORMACION</div> 
+                <div class="precio">$17.000</div>
+                <div class="verMas">+20 HORAS</div> 
             </div>
             <div class="product">
                 <h2></h2>
@@ -181,11 +179,11 @@
                 <p></p>
                 <table>
                     <tr>
-                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                       <button id="botonGH"type="submit" onclick="agregarProducto('Curso de GitHub', 20000, './imagenes/github.png')"><img src="./imagenes/carritomas.png"></button>
                     </tr>
                 </table>
-                <div class="precio">$9.000</div>
-                <div class="verMas">INFORMACION</div> 
+                <div class="precio">$20.000</div>
+                <div class="verMas">+20 HORAS</div> 
             </div>
             <div class="product">
                 <h2></h2>
@@ -193,11 +191,11 @@
                 <p></p>
                 <table>
                     <tr>
-                       <button type="submit"><img src="./imagenes/carritomas.png"></button>
+                       <button id="botonVS" type="submit" onclick="agregarProducto('Curso de VScode', 10000, './imagenes/vscode.png')"><img src="./imagenes/carritomas.png"></button>
                     </tr>
                 </table>
-                <div class="precio">$9.000</div>
-                <div class="verMas">INFORMACION</div> 
+                <div class="precio">$10.000</div>
+                <div class="verMas">+10 HORAS</div> 
             </div>
             <div class="consulta">
                 <img src="imagenes/robot.png">
@@ -267,9 +265,68 @@
                
             </div>
             <footer>
-                <div></div>
-                <p>&copy; 2024 Tienda en línea</p>
+                <div class="footer-contenido">
+                    <div id="contacto" onclick="abrirModal()">
+                        <img src="imagenes/telefono.png" alt="Contacto"><p>CONTACTANOS</p>
+                    </div>
+                    <div id="modalContacto" class="modal">
+                        <div class="modal-contenido">
+                            <span class="cerrar" onclick="cerrarModal()">X</span>
+                            <h2>¡Seguinos en nuestras redes sociales!</h2>
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/">
+                                        <img src="imagenes/facebookicon.png" alt="Facebook">
+                                        <span>bootcamp21</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/">
+                                        <img src="imagenes/twittericon.png" alt="Twitter">
+                                        <span>bootcamp21</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/">
+                                        <img src="imagenes/Instagram_logo.png" alt="Instagram">
+                                        <span>@bootcamp21</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:bootcamp@gmail.com">
+                                        <img src="imagenes/Gmail_icon.png" alt="Gmail">
+                                        <span>bootcamp@gmail.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="imagenes/telefono.png" alt="Teléfono">
+                                        <span>+299 4 444111</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com">
+                                        <img src="imagenes/Youtube_logo.png" alt="YouTube">
+                                        <span>Canal: bootcamp21</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="modalBackdrop" class="modal-backdrop" onclick="cerrarModal()"></div>
             
+                    <div class="contactos">
+                        
+                        <div id="redes-sociales">
+                           
+                        </div>
+                    </div>
+            
+                    <div >
+                        <p>&copy; 2024 Bootcamp</p>
+                    
+                    </div>
+                </div>
             </footer>
     </div>
    

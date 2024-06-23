@@ -38,17 +38,37 @@ body {
 
     position:fixed;
     font-size: 25px;
+    border: 1px solid;
     top: 10px;
     right: 20px;
     width: 300px;
+    max-height: 800px; 
+    overflow-y: auto;
+    scroll-behavior: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
     z-index: 1000;
     margin-top: 70px;
-    background-color: #242424;
+   /* background-color: #242424;*/
 
 }
+#cart {
+   
+   
+    padding: 20px;
+}
+.producto-en-carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   border: 1px solid black; 
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px; /* Espacio entre cada producto */
+}
+/*
 #cart h3, span {
     background-color: #242424;
 }
@@ -57,7 +77,9 @@ body {
     border-radius: 7px;
     height: 60px;
     background-color: #242424;
-}
+    margin: 30px;
+    margin-bottom: 40px;
+}*/
 .hidden {
     
  display: none;
@@ -416,6 +438,8 @@ section h3 {
    
 footer {
     background-color: #111111;
+    display: flex;
+    
     color: #fff;
     text-align: center;
     padding: 10px 0;
@@ -432,4 +456,163 @@ footer {
     position:relative;
     bottom: 0;
     
+}
+
+footer #contacto {
+
+}
+footer {
+    background-color: #222222;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    
+     /* Importante para posicionar los elementos hijos */
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+}
+
+/* Estilos para el modal de contacto */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    color: white; /* Color del texto dentro del modal */
+}
+
+.modal-contenido {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center; /* Centra verticalmente los elementos */
+    align-items: center; /* Centra horizontalmente los elementos */
+    background-color: #111111;
+    width: 400px;
+    height: 600px;
+   border-radius: 20px;
+}
+.modal-contenido a {
+    margin: 30px;
+    display: block;
+}
+.modal-contenido img {
+    max-width: 40px;
+    max-width: 40px;
+    border-radius: 4px;
+}
+
+
+/* Estilos para el fondo difuminado */
+.modal-backdrop {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999; /* Z-index menor que el modal pero mayor que otros contenidos */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Estilos específicos para el modo claro */
+body.light-mode .modal-backdrop {
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo difuminado claro */
+}
+
+body.light-mode .modal {
+    background-color: #ffffff; /* Fondo claro */
+    color: #000000; /* Texto oscuro */
+}
+
+/* Estilos específicos para el modo oscuro */
+body.dark-mode .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo difuminado oscuro */
+}
+
+body.dark-mode .modal {
+    background-color: #222222; /* Fondo oscuro */
+    color: #ffffff; /* Texto claro */
+}
+/* Estilos para el botón de contacto (puedes ajustar según el diseño deseado) */
+#contacto {
+    cursor: pointer;
+}
+.contactos img {
+    max-width: 40px;
+    max-width: 40px;
+    border-radius: 4px;
+}
+#contacto img {
+    max-width: 40px;
+    max-width: 40px;
+    border-radius: 4px;
+}
+/*
+ */
+.modal-contenido h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.modal-contenido ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-contenido ul li {
+    margin-bottom: 10px;
+   
+    position: relative;
+    left: 20px;
+}
+
+.modal-contenido ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+.modal-contenido ul li a:hover {
+    text-decoration: underline;
+    transition: 0.1s ease;
+    scale: 1.1;
+}
+
+.modal-contenido ul li a img {
+    width: 30px; /* Ajusta el tamaño de las imágenes según tu diseño */
+    margin-right: 10px;
+}
+
+.modal-contenido ul li a span {
+    font-size: 20px; /* Ajusta el tamaño del texto según tu diseño */
+}
+.cerrar {
+    font-size: 34px;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    cursor: pointer;
+    border: 1px solid;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: red;
+    background-color: rgba(240, 128, 128, 0.482);
 }

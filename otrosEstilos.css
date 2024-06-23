@@ -38,7 +38,7 @@ body.dark-mode nav *{
 
 .contendor {
     width: 80%;
-    
+    height: 1500px;
 }
 
 #htmlinfo {
@@ -190,11 +190,47 @@ body.dark-mode nav *{
 #artist img {
     max-width: 370px;
     max-height: 370px;
+    margin-top: 120px;
 }
 #artist #textArtist{
     width: 250px;
-    font-size: 20px;
+    font-size: 30px;
     color: white;
     margin-top: 50px;
 }
 
+#dato2 {
+    display: flex;
+    margin-top: 60px;
+    color: white;
+
+}
+#dato2 div {
+    padding: 30px;
+    margin: 30px;
+    font-size: 20px;
+}
+
+
+/*JS*/
+#cuerpoJS {
+    display: flex;
+    padding: 30px;
+    margin: 30px auto;
+   
+    justify-content: space-around;
+}
+
+#seccion {
+    display: flex
+   
+}
+#seccion div {
+    padding: 40px;
+    margin: 40px;
+    font-size: 22px;
+}
+#seccion div img {
+    max-width: 350px;
+    max-height: 350px;
+}

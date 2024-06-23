@@ -26,6 +26,8 @@ function claroOscuro() {
 
 // Llamar a la función para asegurar que el event listener se configure
 
+
+/*** MODO CLARO / MODO OSCURO */
 function toggleMode() {
     var body = document.body;
     var imagen = document.getElementById("noche");
@@ -45,9 +47,7 @@ function toggleMode() {
         localStorage.setItem('tema', 'claro');
     }
 }
-
-
-
+// INTENTO DE USAR EL LOCAL STORAGE
 document.addEventListener('DOMContentLoaded', function() {
     var temaGuardado = localStorage.getItem('tema');
     if (temaGuardado === 'oscuro') {
@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("noche").src = "imagenes/night1.png";
     }
 });
+//
+
+// LINKS A PAGINAS
 const html = document.getElementById("html");
 const css = document.getElementById("css");
 const js = document.getElementById("js");
@@ -73,24 +76,7 @@ function irAcss(){
 css.addEventListener("click",irAcss);
 js.addEventListener("click",irAjs);
 html.addEventListener("click",irAhtml);
-
-const botonCarrito = document.getElementById("boton-carro");
-const carritoContenedor = document.getElementById("carrito-contendor")
-botonCarrito.addEventListener("click", function(){
-    carritoContenedor.classList.toggle("hidden");
-});
-
-const botonHTML = document.getElementById("botonHTML");
-const carrito = document.getElementById("cart");
-
-
-botonHTML.addEventListener("click",agregarProducto);
-
-function agregarProducto (){
-    let producto;
-    producto = "Curso de HTML."
-    carrito.textContent =  producto;
-}
+///
 
 /** VALIDAR CAMPOS DEL FORMULARIO, DE LA CONSULTA */
 function validarFormularioConsulta() {
@@ -172,4 +158,87 @@ function validarFormularioConsulta() {
         enviado.textContent = "Se envio todo correctamente.✅"
         enviado.style.color = "rgb(41, 210, 41)"
     }
+}
+
+
+
+/***** AGREGAR AL CARRITO ******/
+
+// OCULTA / MUESTRA CARRITO
+const botonCarrito = document.getElementById("boton-carro"); // EL BOTON AZUL (ICONO DEL CARRITO)
+const carritoContenedor = document.getElementById("carrito-contendor") // EL CONTENEDOR DE TODO LO QUE ESTA ABAJO
+
+botonCarrito.addEventListener("click", function(){
+    carritoContenedor.classList.toggle("hidden");
+});
+
+///
+
+const carrito = document.getElementById("cart");
+const totalElement = document.getElementById("total");
+let total = 0; // Inicializar total como número
+let productosEnCarrito = {}; // Objeto para llevar un registro de los productos en el carrito
+
+// Función para agregar un producto al carrito
+function agregarProducto(nombreProducto, precioProducto, imagenURL) {
+    // Verificar si el producto ya está en el carrito
+    if (productosEnCarrito[nombreProducto]) {
+        alert('Ya has agregado ' + nombreProducto + ' al carrito.');
+        return; // Salir de la función si el producto ya está en el carrito
+    }
+
+    // Crear elemento para mostrar en el carrito
+    const productoEnCarrito = document.createElement("div");
+    productoEnCarrito.classList.add("producto-en-carrito");
+    productoEnCarrito.innerHTML = 
+        '<img src="' + imagenURL + '" style="width: 50px; height: auto;">' +
+        '<p>' + nombreProducto + '</p>' +
+        '<p>Precio: $' + precioProducto + '</p>' +
+        '<button class="eliminar-producto" onclick="eliminarProducto(\'' + nombreProducto + '\', ' + precioProducto + ')">Eliminar del carrito</button>';
+
+    // Mostrar producto en el carrito
+    carrito.appendChild(productoEnCarrito);
+
+    // Agregar el producto al registro
+    productosEnCarrito[nombreProducto] = true;
+
+    // Sumar al total
+    total += precioProducto;
+
+    // Actualizar el elemento totalElement con el valor calculado
+    totalElement.textContent =+ total.toFixed(2); // Formatear el total a 2 decimales
+}
+
+// Función para eliminar un producto del carrito
+function eliminarProducto(nombreProducto, precioProducto) {
+    // Remover el producto del DOM
+    const productosEnCarritoDOM = carrito.getElementsByClassName("producto-en-carrito");
+    for (let i = 0; i < productosEnCarritoDOM.length; i++) {
+        const producto = productosEnCarritoDOM[i];
+        const nombre = producto.getElementsByTagName("p")[0].textContent;
+        if (nombre === nombreProducto) {
+            carrito.removeChild(producto);
+            break;
+        }
+    }
+
+    // Restar el producto del total
+    total -= precioProducto;
+    totalElement.textContent =+ total.toFixed(2); // Actualizar el total mostrado
+
+    // Eliminar el producto del registro
+    delete productosEnCarrito[nombreProducto];
+}
+
+//// contactos
+
+function abrirModal() {
+    document.getElementById('modalContacto').style.display = 'block';
+    document.getElementById('modalBackdrop').style.display = 'block';
+}
+
+// Función para cerrar el modal de contacto
+function cerrarModal() {
+    document.getElementById('modalContacto').style.display = 'none';
+    document.getElementById('modalBackdrop').style.display = 'none';
 }
