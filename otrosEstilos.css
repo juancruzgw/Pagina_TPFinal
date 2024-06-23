@@ -70,6 +70,7 @@ body.dark-mode nav *{
     transition: 0.3s ease;
     scale: 1.2;
 }
+
 #main {
    
     width: 80%;
@@ -123,6 +124,10 @@ section li:hover {
 #dato #textoHTML{
     width: 300px;
 }
+#dato2 img {
+    margin-top: 200px;
+    
+}
 
 
 /** css*/
@@ -164,7 +169,7 @@ body.dark-mode nav *{
     display: flex;
     justify-content: space-around;
     margin: auto;
-    color: white;
+    
     width: 80%;
 
 }

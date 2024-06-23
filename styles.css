@@ -38,13 +38,14 @@ body {
 
     position:fixed;
     font-size: 25px;
-    border: 1px solid;
+    
     top: 10px;
     right: 20px;
     width: 300px;
     max-height: 800px; 
     overflow-y: auto;
     scroll-behavior: auto;
+    background-color: #242424;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -67,6 +68,15 @@ body {
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 10px; /* Espacio entre cada producto */
+}
+body.light-mode #carrito-contendor{
+    background-color: white;
+    color: #000000;
+
+}
+body.dark-mode #carrito-contendor{
+    background-color: #242424;
+    color: #ffffff;
 }
 /*
 #cart h3, span {
@@ -117,6 +127,24 @@ body.dark-mode .contenedor * {
 body.dark-mode nav *{
     background-color: #242424;
     color: #ffffff;
+}
+/**CUPON DE DESCUENTO*/
+#cupon-input {
+    background-color: white; /* Color de fondo por defecto */
+}
+
+#cupon-input.invalid {
+    background-color: lightcoral; /* Color de fondo cuando el cupón es inválido */
+}
+
+#cupon-input.valid {
+    background-color: lightgreen; /* Color de fondo cuando el cupón es válido */
+}
+
+#cupon-mensaje {
+    margin-top: 10px;
+    padding: 10px;
+    display: none; /* Inicialmente oculto */
 }
 header {
     margin-bottom: 20px;

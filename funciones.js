@@ -163,55 +163,52 @@ function validarFormularioConsulta() {
 
 
 /***** AGREGAR AL CARRITO ******/
-
-// OCULTA / MUESTRA CARRITO
-const botonCarrito = document.getElementById("boton-carro"); // EL BOTON AZUL (ICONO DEL CARRITO)
-const carritoContenedor = document.getElementById("carrito-contendor") // EL CONTENEDOR DE TODO LO QUE ESTA ABAJO
+const botonCarrito = document.getElementById("boton-carro");
+const carritoContenedor = document.getElementById("carrito-contendor");
+const cuponInput = document.getElementById("cupon-input");
+const aplicarCuponBtn = document.getElementById("aplicar-cupon-btn");
+const cuponMensaje = document.getElementById("cupon-mensaje");
+const finalizarCompraBtn = document.getElementById("finalizar-compra-btn");
+const mensajeFinalizarCompra = document.getElementById("mensaje-finalizar-compra");
 
 botonCarrito.addEventListener("click", function(){
     carritoContenedor.classList.toggle("hidden");
 });
 
-///
-
 const carrito = document.getElementById("cart");
 const totalElement = document.getElementById("total");
-let total = 0; // Inicializar total como número
-let productosEnCarrito = {}; // Objeto para llevar un registro de los productos en el carrito
+let total = 0;
+let productosEnCarrito = [];
+let descuentoAplicado = false;
 
-// Función para agregar un producto al carrito
 function agregarProducto(nombreProducto, precioProducto, imagenURL) {
-    // Verificar si el producto ya está en el carrito
-    if (productosEnCarrito[nombreProducto]) {
-        alert('Ya has agregado ' + nombreProducto + ' al carrito.');
-        return; // Salir de la función si el producto ya está en el carrito
+    if (productosEnCarrito.includes(nombreProducto)) {
+        cuponInput.style.backgroundColor = "lightcoral";
+        return;
     }
 
-    // Crear elemento para mostrar en el carrito
     const productoEnCarrito = document.createElement("div");
     productoEnCarrito.classList.add("producto-en-carrito");
     productoEnCarrito.innerHTML = 
         '<img src="' + imagenURL + '" style="width: 50px; height: auto;">' +
         '<p>' + nombreProducto + '</p>' +
-        '<p>Precio: $' + precioProducto + '</p>' +
+        '<p>Precio: $' + precioProducto.toFixed(2) + '</p>' +
         '<button class="eliminar-producto" onclick="eliminarProducto(\'' + nombreProducto + '\', ' + precioProducto + ')">Eliminar del carrito</button>';
 
-    // Mostrar producto en el carrito
     carrito.appendChild(productoEnCarrito);
 
-    // Agregar el producto al registro
-    productosEnCarrito[nombreProducto] = true;
+    productosEnCarrito.push(nombreProducto);
 
-    // Sumar al total
-    total += precioProducto;
+    if (descuentoAplicado) {
+        total += precioProducto * 0.8;
+    } else {
+        total += precioProducto;
+    }
 
-    // Actualizar el elemento totalElement con el valor calculado
-    totalElement.textContent =+ total.toFixed(2); // Formatear el total a 2 decimales
+    totalElement.textContent = total.toFixed(2);
 }
 
-// Función para eliminar un producto del carrito
 function eliminarProducto(nombreProducto, precioProducto) {
-    // Remover el producto del DOM
     const productosEnCarritoDOM = carrito.getElementsByClassName("producto-en-carrito");
     for (let i = 0; i < productosEnCarritoDOM.length; i++) {
         const producto = productosEnCarritoDOM[i];
@@ -222,12 +219,78 @@ function eliminarProducto(nombreProducto, precioProducto) {
         }
     }
 
-    // Restar el producto del total
-    total -= precioProducto;
-    totalElement.textContent =+ total.toFixed(2); // Actualizar el total mostrado
+    if (descuentoAplicado) {
+        total -= precioProducto * 0.8;
+    } else {
+        total -= precioProducto;
+    }
 
-    // Eliminar el producto del registro
-    delete productosEnCarrito[nombreProducto];
+    totalElement.textContent = total.toFixed(2);
+
+    const index = productosEnCarrito.indexOf(nombreProducto);
+    if (index !== -1) {
+        productosEnCarrito.splice(index, 1);
+    }
+}
+
+// Event listener para aplicar el cupón
+aplicarCuponBtn.addEventListener("click", function() {
+    const cupon = cuponInput.value.trim();
+
+    if (cupon === "PRIMERCOMPRA") {
+        if (!descuentoAplicado) {
+            total *= 0.8; // Aplicar descuento del 20%
+            descuentoAplicado = true;
+            totalElement.textContent = total.toFixed(2);
+            cuponInput.style.backgroundColor = "lightgreen";
+            cuponMensaje.textContent = "Descuento aplicado del 20% por cupón PRIMERCOMPRA.";
+            cuponMensaje.style.display = "block";
+        } else {
+            cuponInput.style.backgroundColor = "lightcoral";
+            cuponMensaje.textContent = "El cupón PRIMERCOMPRA ya ha sido aplicado.";
+            cuponMensaje.style.display = "block";
+        }
+    } else {
+        cuponInput.style.backgroundColor = "lightcoral";
+        cuponMensaje.textContent = "Cupón inválido. Intente de nuevo.";
+        cuponMensaje.style.display = "block";
+    }
+
+    // Limpiar campo de cupón después de aplicarlo
+    cuponInput.value = "";
+});
+
+// Event listener para finalizar la compra
+finalizarCompraBtn.addEventListener("click", function() {
+    // Verificar si hay productos en el carrito
+    if (productosEnCarrito.length === 0) {
+        mensajeFinalizarCompra.textContent = "No hay productos en el carrito. Agregue productos para realizar la compra.";
+        mensajeFinalizarCompra.style.color = "red";
+        mensajeFinalizarCompra.style.display = "block";
+    } else {
+        mensajeFinalizarCompra.textContent = "¡Compra finalizada! Gracias por tu compra.";
+        mensajeFinalizarCompra.style.color = "green";
+        mensajeFinalizarCompra.style.display = "block";
+        setTimeout(function() {
+            mensajeFinalizarCompra.style.display = "none";
+            reiniciarCarrito(); // Esta función debería reiniciar el carrito después de la compra
+        }, 3000); // Ocultar el mensaje después de 3 segundos (3000 milisegundos)
+    }
+});
+
+// Función para reiniciar el carrito después de finalizar la compra
+function reiniciarCarrito() {
+    carrito.innerHTML = ""; // Vaciar el contenido del carrito
+    total = 0; // Reiniciar el total a cero
+    totalElement.textContent = total.toFixed(2); // Actualizar el elemento total mostrado
+    productosEnCarrito = []; // Reiniciar el arreglo de productos en el carrito
+    descuentoAplicado = false; // Reiniciar el estado del descuento aplicado
+    cuponInput.style.backgroundColor = ""; // Limpiar el color de fondo del input de cupón
+    cuponInput.value = ""; // Limpiar campo de cupón
+    cuponMensaje.textContent = ""; // Limpiar mensaje de cupón
+    cuponMensaje.style.display = "none"; // Ocultar mensaje de cupón
+    mensajeFinalizarCompra.textContent = ""; // Limpiar mensaje de finalización de compra
+    mensajeFinalizarCompra.style.display = "none"; // Ocultar mensaje de finalización de compra
 }
 
 //// contactos
