@@ -42,7 +42,7 @@ body {
     top: 10px;
     right: 20px;
     width: 300px;
-    max-height: 800px; 
+    max-height: 700px; 
     overflow-y: auto;
     scroll-behavior: auto;
     background-color: #242424;
