@@ -199,7 +199,7 @@ nav ul li a:hover {
     background-color: #242424;
     margin: auto;
     width: 1100px;
-    height: 3100px ;
+    height: auto;
     display:  block;
     border-radius: 20px;
    /* color: #ffffff;*/
@@ -301,8 +301,8 @@ section h3 {
     margin-top: 20px;
     width: 80%;
     margin: 190px auto;
-    
-    height: 1100px;
+   
+    height: auto;
    /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));*/
     display: flex;
@@ -313,12 +313,14 @@ section h3 {
    
 }
 .containerFramework h4 {
+    
+    width: 85%;
    border-bottom: 2px solid;
    border-color: #cbcbcb;
    padding-bottom: 5px;
     font-size: 39px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     color: rgb(173, 173, 173);
@@ -326,14 +328,26 @@ section h3 {
 
 .containerFramework {
     
+    width: 80%;
+    margin: 1px auto;
+    position: relative;
+    bottom: 160px;
+    height: auto;
+   /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    /*
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-   
+   width: 80%;
   color: #333;
-   width: 100%;
+   width: 100%;*/
 }
 .product .precio {
     font-size: 30px;
@@ -342,7 +356,7 @@ section h3 {
 .product img {
     max-width: 50px;
     max-height: 50px;
-    transition: 0.1s ease;
+    transition: 0.3s ease;
     background-image: none;
     /*padding-left: 5px;
     padding-top: 5px;*/
@@ -360,6 +374,7 @@ section h3 {
     padding-left: 5px;
     padding-top: 5px;
     transform: scale(1.08);
+   
     cursor: pointer;
 }
 .product button{
@@ -376,25 +391,27 @@ section h3 {
     margin-left: 20px;
     margin-top: 30px;
     border-radius: 30px;
-    background-color: rgb(219, 219, 219);
+    
     font-size: small;
     transition: 0.3s ease;
     color: #000000;
 }
 .product:hover {
     box-shadow:0 4px 15px rgb(0, 0, 0);
-    transform: scale(1.08);
+    transform: scale(1.1);
     border: 1px solid;
     border-color: black;
     
     
 }
 .product img {
+    
+    
     max-width: 100px;
     max-height: 100px;
 }
 .consulta {
-    margin-top: 60px;
+    margin-top: 130px;
     
    width: 80%;
     
@@ -465,37 +482,26 @@ section h3 {
 
    
 footer {
-    background-color: #111111;
-    display: flex;
     
-    color: #fff;
+    
     text-align: center;
     padding: 10px 0;
-    border-top:1px solid gray;
+    border-top: 1px solid gray;
     width: 100%;
-    bottom: 0;
-    border-radius: 5px;
+    height: 70px;
+    border-radius: 20px;
 }
     
-footer {
-    margin-top: 70px;
-    clear:both;
-   
-    position:relative;
-    bottom: 0;
-    
-}
+
 
 footer #contacto {
 
 }
 footer {
-    background-color: #222222;
+   
     padding: 20px 0;
     display: flex;
     justify-content: center;
-    
-     /* Importante para posicionar los elementos hijos */
 }
 
 .footer-contenido {

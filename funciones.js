@@ -1,31 +1,3 @@
-/*
-function claroOscuro() {
-    // Obtener el botón y el contenedor
-    var boton = document.getElementById('modo');
-    var contenedor = document.getElementById('contenedor');
-    
-    // Definir los colores claro y oscuro
-    var colorClaro = "#ffffff";  // Blanco
-    var colorOscuro = "#111111"; // Negro
-    
-    // Agregar el event listener al botón
-    boton.addEventListener("click", function() {
-        // Obtener el color actual del contenedor
-        var colorActual = window.getComputedStyle(contenedor).backgroundColor;
-        
-        // Cambiar el color al alternar entre claro y oscuro
-        if (colorActual === "rgb(17, 17, 17)") { // Equivalente RGB de #111111
-            contenedor.style.backgroundColor = colorClaro;
-            contenedor.style.color = "#000000"; // Cambiar el color del texto a negro cuando el fondo es claro
-        } else {
-            contenedor.style.backgroundColor = colorOscuro;
-            contenedor.style.color = "#ffffff"; // Cambiar el color del texto a blanco cuando el fondo es oscuro
-        }
-    });
-}*/
-
-// Llamar a la función para asegurar que el event listener se configure
-
 
 /*** MODO CLARO / MODO OSCURO */
 function toggleMode() {
@@ -305,3 +277,35 @@ function cerrarModal() {
     document.getElementById('modalContacto').style.display = 'none';
     document.getElementById('modalBackdrop').style.display = 'none';
 }
+
+/// juego en js
+
+    const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+    let intentos = 0;
+
+    function adivinarNumero() {
+      const guessInput = document.getElementById('guessInput');
+      const message = document.getElementById('message');
+      const guess = parseInt(guessInput.value);
+
+      if (isNaN(guess) || guess < 1 || guess > 100) {
+        message.textContent = 'Por favor ingresa un número válido entre 1 y 100.';
+      } else {
+        intentos++;
+
+        if (guess === numeroAleatorio) {
+          message.textContent = `¡Felicidades! Adivinaste el número en ${intentos} intentos.`;
+          
+          reiniciarJuego();
+        } else if (guess < numeroAleatorio) {
+          message.textContent = 'El número es mayor. Intenta de nuevo.';
+        } else {
+          message.textContent = 'El número es menor. Intenta de nuevo.';
+        }
+      }
+    }
+
+    function reiniciarJuego() {
+      numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+      intentos = 0;
+    }
