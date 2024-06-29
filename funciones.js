@@ -1,5 +1,5 @@
 
-/*** MODO CLARO / MODO OSCURO */
+/*** MODO CLARO / MODO OSCURO 
 function toggleMode() {
     var body = document.body;
     var imagen = document.getElementById("noche");
@@ -20,6 +20,41 @@ function toggleMode() {
     }
 }
 // INTENTO DE USAR EL LOCAL STORAGE
+document.addEventListener('DOMContentLoaded', function() {
+    var temaGuardado = localStorage.getItem('tema');
+    if (temaGuardado === 'oscuro') {
+        document.body.classList.add('dark-mode');
+        document.getElementById("noche").src = "imagenes/day1.png";
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById("noche").src = "imagenes/night1.png";
+    }
+});*/
+//
+/*** MODO CLARO / MODO OSCURO */
+function toggleMode() {
+    var body = document.body;
+    var imagen = document.getElementById("noche");
+    var carrito = document.querySelector('.product button');
+    // Alternar entre las clases light-mode y dark-mode
+    if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        imagen.src = "imagenes/day1.png";
+        localStorage.setItem('tema', 'oscuro');
+        carrito.style.backgroundImage = 'url(imagenes/carritomas.png)';
+    
+    } else {
+        imagen.src = "imagenes/night1.png";
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('tema', 'claro');
+        carrito.style.backgroundImage = 'url(imagenes/carritoblanco.png)';
+
+    }
+}
+
+// Aplicar el tema guardado al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     var temaGuardado = localStorage.getItem('tema');
     if (temaGuardado === 'oscuro') {
@@ -309,3 +344,15 @@ function cerrarModal() {
       numeroAleatorio = Math.floor(Math.random() * 100) + 1;
       intentos = 0;
     }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const deslizador = document.getElementById('deslizador');
+        const divRedimensionable = document.getElementById('div-redimensionable');
+
+        deslizador.addEventListener('input', function() {
+            const nuevoTamano = deslizador.value + 'px';
+            divRedimensionable.style.width = nuevoTamano;
+            divRedimensionable.style.height = nuevoTamano;
+        });
+    });
+    

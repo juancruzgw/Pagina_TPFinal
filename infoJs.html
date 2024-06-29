@@ -20,7 +20,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="#product">Cursos</a></li>
                 <li><a href="#frameW">FrameWorks</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#" onclick="abrirModal()">Contacto</a></li>
             </ul>
         </nav>
         <div class="modo">
@@ -45,11 +45,75 @@
             <button class="guess-button" onclick="adivinarNumero()">Adivinar</button>
             <p class="message" id="message"> </p>
           </div>
+          <div id="otroJuego">
+                 <input type="range" id="deslizador" min="50" max="500" value="100">
+                 <div id="div-redimensionable"></div>
+          </div>
+          
 
-        <footer>
-            <div></div>
-            <p>&copy; 2024 Tienda en línea</p>
+          <footer>
+            <div class="footer-contenido">
+                <div id="contacto" onclick="abrirModal()">
+                    <img src="imagenes/telefono.png" alt="Contacto"><p>CONTACTANOS</p>
+                </div>
+                <div id="modalContacto" class="modal">
+                    <div class="modal-contenido">
+                        <span class="cerrar" onclick="cerrarModal()">X</span>
+                        <h2>¡Seguinos en nuestras redes sociales!</h2>
+                        <ul>
+                            <li>
+                                <a href="https://www.facebook.com/">
+                                    <img src="imagenes/facebookicon.png" alt="Facebook">
+                                    <span>bootcamp21</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/">
+                                    <img src="imagenes/twittericon.png" alt="Twitter">
+                                    <span>bootcamp21</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/">
+                                    <img src="imagenes/Instagram_logo.png" alt="Instagram">
+                                    <span>@bootcamp21</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:bootcamp@gmail.com">
+                                    <img src="imagenes/Gmail_icon.png" alt="Gmail">
+                                    <span>bootcamp@gmail.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="imagenes/telefono.png" alt="Teléfono">
+                                    <span>+299 4 444111</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com">
+                                    <img src="imagenes/Youtube_logo.png" alt="YouTube">
+                                    <span>Canal: bootcamp21</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="modalBackdrop" class="modal-backdrop" onclick="cerrarModal()"></div>
         
+                <div class="contactos">
+                    
+                    <div id="redes-sociales">
+                       
+                    </div>
+                </div>
+        
+                <div >
+                    <p>&copy; 2024 Bootcamp</p>
+                
+                </div>
+            </div>
         </footer>
     </div>
 <body>

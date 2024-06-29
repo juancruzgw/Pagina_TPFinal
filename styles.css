@@ -2,6 +2,14 @@
     font-family: Monaco;
     src: url(monaco/Monaco.ttf);
 }*/
+* {
+    
+    cursor: url(./imagenes/puntero.png), auto;
+    
+}
+a {
+    cursor: url(./imagenes/click.png), pointer;
+}
 
 body {
     margin: 30px 0;
@@ -11,7 +19,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat; 
     background-position: center;
-   
+    
    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), url('imagenes/backg.jpg');
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el fondo 
     background-blend-mode: overlay;*/
@@ -209,11 +217,10 @@ nav ul li a:hover {
 .modo img:hover {
     transition: 0.7s ease;
     scale: 1.1;
-    cursor: pointer;
-}
-.light-mode, .dark-mode {
     
+    cursor: url(./imagenes/click.png), pointer;
 }
+
    
 #modo {
    
@@ -374,8 +381,12 @@ section h3 {
     padding-left: 5px;
     padding-top: 5px;
     transform: scale(1.08);
-   
-    cursor: pointer;
+    cursor: url(./imagenes/click.png), pointer;
+    
+}
+
+.product button img .dark-mode {
+    background-image: url(imagenes/carritoblanco.png);
 }
 .product button{
     background: none;
@@ -413,8 +424,8 @@ section h3 {
 .consulta {
     margin-top: 130px;
     
-   width: 80%;
-    
+     width: 90%;
+    font-family: url(monaco/Monaco.ttf);
     display: flex;
     justify-content: space-between;
    
@@ -430,19 +441,28 @@ section h3 {
 .consulta div {
    /* margin-left: 70px;
     margin-top: 50px;*/
+    font-size: 40px;
     border-left: 1px solid;
     border-color: #cbcbcb;
     width: 100%;
    
-    font-size: 20px;
+    font-size: 30px;
     color: rgb(177, 177, 177);
+}
+.consulta div tr label{
+    font-size: 25px;
+    position: relative;
+   
+    bottom: 15px;
 }
 .consulta div input {
     border-radius: 5px;
     font-size: 10px;
     border-color: rgb(0, 0, 0);
     background-color: #333;
-    width: 160px;
+    height: 18px;
+    width: 200px;
+
    
    
 }
@@ -451,7 +471,9 @@ section h3 {
     font-size: 10px;
     border-color: rgb(0, 0, 0);
     background-color: #333;
-    width: 160px;
+    font-size: 20px;
+    width: 200px;
+    height: 30px;
 }
 
 
@@ -559,7 +581,7 @@ footer {
     height: 100%;
      background-color: rgba(0, 0, 0, 0.7);
     z-index: 999; /* Z-index menor que el modal pero mayor que otros contenidos */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    cursor: url(./imagenes/click.png), pointer; /* Cambia el cursor al pasar por encima */
 }
 
 /* Estilos específicos para el modo claro */
@@ -583,7 +605,7 @@ body.dark-mode .modal {
 }
 /* Estilos para el botón de contacto (puedes ajustar según el diseño deseado) */
 #contacto {
-    cursor: pointer;
+    cursor: url(./imagenes/click.png), pointer;
 }
 .contactos img {
     max-width: 40px;
@@ -642,7 +664,7 @@ body.dark-mode .modal {
     justify-content: center;
     align-items: center;
     padding: auto;
-    cursor: pointer;
+    cursor: url(./imagenes/click.png), pointer;
     border: 1px solid;
     width: 45px;
     height: 45px;
