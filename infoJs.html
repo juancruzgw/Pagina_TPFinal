@@ -44,12 +44,43 @@
             <input type="number" class="guess-input" id="guessInput" placeholder="Ingresa un número">
             <button class="guess-button" onclick="adivinarNumero()">Adivinar</button>
             <p class="message" id="message"> </p>
+            <div id="explicacion"><p>
+                <h1>¿Como funciona?</h1>
+                <ul>
+                    <li>1. Generación del número aleatorio:
+
+                       <strong> Math.floor(Math.random() * 100) + 1</strong>:  El juego genera este número de manera aleatoria. Este número es lo que tienes que adivinar.</li><br>
+                    <li>  2. Adivinando el número:
+                
+                        Ahora, te piden que ingreses un número en un campo de texto. Este número que ingresas es tu intento para adivinar el número secreto.</li><br>
+                    <li>3. Evaluación de tu intento:
+                
+                        Después de ingresar tu número:
+                        
+                        Si tu número está fuera del rango válido (menor que 1 o mayor que 100), te indican que debes ingresar un número válido.
+                        Si el número que ingresaste es válido, el juego contará tus intentos.
+                        Compara tu número con el número secreto:
+                        Si adivinas el número exactamente, te felicitan y te dicen en cuántos intentos lo lograste.
+                        Si tu número es menor que el número secreto, te dicen que intentes con un número más grande.
+                        Si tu número es mayor que el número secreto, te sugieren intentar con un número más pequeño.</li><br>
+                    <li>4. Reiniciar el juego:
+                
+                        Después de adivinar correctamente el número o cuando quieras comenzar de nuevo, el juego genera un nuevo número aleatorio para que empieces a adivinar de nuevo. También reinicia el contador de intentos para registrar tu progreso desde cero.</li>
+                </ul>
+                </p>
+            </div>
           </div>
           <div id="otroJuego">
+            
+                <p>Puedes cambiar en tiempo real los elementos de html, deslizando este Slider podras cambiar en PX las dimensiones del cubo</p><br>
+                <p>El minimo es 50px, y el maximo 500px</p>
                  <input type="range" id="deslizador" min="50" max="500" value="100">
-                 <div id="div-redimensionable"></div>
+                 <div id="redimensionable"></div>
           </div>
           
+
+
+
 
           <footer>
             <div class="footer-contenido">

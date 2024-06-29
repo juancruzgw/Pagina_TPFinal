@@ -219,9 +219,12 @@ body.dark-mode nav *{
 /* caja loca*/
 #cssdiv {
     display: flex;
-    align-items:first baseline;
+    align-items: center;
     justify-content: space-around;
-   
+  
+  width: 80%;
+  margin: auto;
+  padding: 30px;
     height: 500px;
     margin-top: 40px;
 
@@ -229,16 +232,30 @@ body.dark-mode nav *{
 #sub {
     height: 100px;
     width: 300px;
-    font-size: 20px;
+    font-size: 22px;
+    position: relative;
+    bottom: 140px;
+}
+#cajadelacaja {
+    border: 3px solid rgb(0, 60, 255);
+    border-radius: 30px;
+    padding: 15px;
+    display: flex;
+    align-items: first baseline;
+    justify-content: first baseline;
+    height: 320px;
+    width: 320px;
 }
 .crazy-box {
     position: relative;
-    right: 100px;
-    
+    padding: 10px;
+   /* right: 200px;
+    top: 120px;*/
     width: 100px;
     height: 100px;
     background-color: #ff6347;
     animation: crazyAnimation 5s infinite;
+   
   }
 
   @keyframes crazyAnimation {
@@ -272,47 +289,72 @@ body.dark-mode nav *{
 
   #imagenloca {
     
-    display: flex;
-    align-items:first baseline;
-    justify-content: space-around;
+    display: block;
+    
+    
+    margin: auto;
+    width: 70%;
+    height: 650px;
    
-    height: 500px;
-   
+  }
+  #cajadefoto {
+    border: 3px solid; color: rgb(58, 4, 119); 
+    width: 100%;
+    padding: 40px;
+    border-radius: 20px;
+    height: 150px;
+  }
+  #imagenloca #descripcion p {
+    font-size: 22px;
+    
+    width: 60%;
+  }
+  #imagenloca #descripcion ul {
+    
+    margin: 30px;
+    width: 600px;
+
   }
   #imagenloca #descripcion {
     padding: 20px;
-    width: 40%;
-    margin: 20px;
+    
+    width: 100%;
+    height: 330px;
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
-    bottom: 100px;
-    margin-top: 150px;
+    font-size: 20px;
+    
+   
     
   }
   .crazy-image {
     
-    width: 150px;
-    height: 150px;
-    background-image: url('imagenes/pinturas.png');
+    width: 140px;
+    height: 140px;
+    background-image: url('imagenes/cosa.png');
     background-size: cover;
-    animation: tranquilImageAnimation 5s infinite ease-in-out;
+    animation: tranquilImageAnimation 6s infinite ease-in-out;
   }
 
   @keyframes tranquilImageAnimation {
     0%, 100% {
-      transform: translateX(0) scale(1);
-      opacity: 1;
+      transform: translateX(0) scale(0.5);
+      opacity: 0.4;
     }
     25% {
-      transform: translateX(50px) scale(1.1);
-      opacity: 0.9;
+      transform: translateX(300px) scale(1);
+      opacity: 0.7;
     }
     50% {
-      transform: translateX(100px) scale(1.2);
-      opacity: 0.8;
+      transform: translateX(600px) scale(1.5);
+      opacity: 1;
     }
     75% {
-      transform: translateX(50px) scale(1.1);
-      opacity: 0.9;
+      transform: translateX(300px) scale(1);
+      opacity: 0.7;
     }
   }
 #descripcion {
@@ -357,6 +399,19 @@ footer {
 /* MINI JUEGO EN JS*/
 .game-container {
     text-align: center;
+   
+    border-radius: 15px;
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    height: 650px;
+    background-color: #F0DB4F !important;
+    color: #000000 !important;
+
+  }
+  .game-container h1 {
+    background-color: #F0DB4F !important;
+    color: #000000 !important;
   }
 
   .guess-input {
@@ -364,14 +419,17 @@ footer {
     font-size: 16px;
     margin-bottom: 10px;
     text-align: center;
+    border-radius: 15px;
+    background-color: #F0DB4F !important;
+    color: #000000 !important;
   }
 
   .guess-button {
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
-    background-color: #007bff;
-    color: white;
+    background-color: black !important;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     outline: none;
@@ -380,22 +438,62 @@ footer {
   .message {
     font-size: 18px;
     margin-top: 20px;
+    background-color: #F0DB4F !important;
+    color: #000000 !important;
+
+  }
+  #explicacion {
+    font-size: 20px;
+    background-color: #F0DB4F !important;
+    color: #000000 !important;
+  }
+  #explicacion ul li strong {
+    background-color: #F0DB4F !important;
+    color: #000000 !important;
+  }
+  #explicacion ul {
+    background-color: #F0DB4F !important;
+    color: #000000 !important;
+  }
+  #explicacion ul li {
+    background-color: #F0DB4F !important;
+    color: #000000 !important;
   }
 
-  #otroJuego {
-    margin: 30px auto;
-    border: 1px solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    padding: 20px;
-  }
+
 
   /** otro mini juego*/
-  #div-redimensionable {
+ 
+  #otroJuego {
+    
+    height: 800px;
+    width: 80%;
+    margin: 40px auto;
+    display: block;
+    border: 3px solid #F0DB4F;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #F0DB4F;
+    
+}
+#otroJuego p {
+    color: #000000 !important;
+    font-size: 25px;
+    background-color: #F0DB4F;
+}
+#deslizador {
+    width: 100%; /* Ancho del input range */
+    margin: 20px auto; /* Espacio inferior */
+    
+    
+    
+}
+
+#redimensionable {
+    margin: auto;
     width: 100px;
     height: 100px;
-    background-color: lightblue;
-    transition: width 0.2s, height 0.2s; /* Para una transición suave */
+    background-color: rgba(158, 0, 0, 0.623);
+    transition: width 0.2s, height 0.2s;
+    border-radius: 10px; /* Para una transición suave */
 }

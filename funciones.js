@@ -68,22 +68,31 @@ document.addEventListener('DOMContentLoaded', function() {
 //
 
 // LINKS A PAGINAS
-const html = document.getElementById("html");
-const css = document.getElementById("css");
-const js = document.getElementById("js");
-function irAjs(){
-    window.location.href = "./infoJs.html"
+document.addEventListener('DOMContentLoaded', function() {
+    const html = document.getElementById("html");
+    const css = document.getElementById("css");
+    const js = document.getElementById("js");
+
+    if (html && css && js) {
+        css.addEventListener("click", irAcss);
+        js.addEventListener("click", irAjs);
+        html.addEventListener("click", irAhtml);
+    } else {
+        console.error('Uno o más elementos no fueron encontrados.');
+    }
+});
+
+function irAjs() {
+    window.location.href = "./infoJs.html";
 }
-function irAhtml (){
-    window.location.href = "./infohtml.html"
+
+function irAhtml() {
+    window.location.href = "./infohtml.html";
 }
-function irAcss(){
-    window.location.href = "./infoCss.html"
+
+function irAcss() {
+    window.location.href = "./infoCss.html";
 }
-css.addEventListener("click",irAcss);
-js.addEventListener("click",irAjs);
-html.addEventListener("click",irAhtml);
-///
 
 /** VALIDAR CAMPOS DEL FORMULARIO, DE LA CONSULTA */
 function validarFormularioConsulta() {
@@ -178,9 +187,20 @@ const cuponMensaje = document.getElementById("cupon-mensaje");
 const finalizarCompraBtn = document.getElementById("finalizar-compra-btn");
 const mensajeFinalizarCompra = document.getElementById("mensaje-finalizar-compra");
 
-botonCarrito.addEventListener("click", function(){
-    carritoContenedor.classList.toggle("hidden");
+document.addEventListener('DOMContentLoaded', function() {
+    const botonCarrito = document.getElementById("boton-carro");
+    const carritoContenedor = document.getElementById("carrito-contendor");
+
+    if (botonCarrito && carritoContenedor) {
+        botonCarrito.addEventListener("click", function() {
+            carritoContenedor.classList.toggle("hidden");
+        });
+    } else {
+        console.error('Uno o más elementos no fueron encontrados.');
+    }
 });
+
+
 
 const carrito = document.getElementById("cart");
 const totalElement = document.getElementById("total");
@@ -241,48 +261,58 @@ function eliminarProducto(nombreProducto, precioProducto) {
 }
 
 // Event listener para aplicar el cupón
-aplicarCuponBtn.addEventListener("click", function() {
-    const cupon = cuponInput.value.trim();
+document.addEventListener('DOMContentLoaded', function() {
+    const aplicarCuponBtn = document.getElementById("aplicar-cupon-btn");
 
-    if (cupon === "PRIMERCOMPRA") {
-        if (!descuentoAplicado) {
-            total *= 0.8; // Aplicar descuento del 20%
-            descuentoAplicado = true;
-            totalElement.textContent = total.toFixed(2);
-            cuponInput.style.backgroundColor = "lightgreen";
-            cuponMensaje.textContent = "Descuento aplicado del 20% por cupón PRIMERCOMPRA.";
-            cuponMensaje.style.display = "block";
-        } else {
-            cuponInput.style.backgroundColor = "lightcoral";
-            cuponMensaje.textContent = "El cupón PRIMERCOMPRA ya ha sido aplicado.";
-            cuponMensaje.style.display = "block";
-        }
+    if (aplicarCuponBtn) {
+        aplicarCuponBtn.addEventListener("click", function() {
+            const cupon = cuponInput.value.trim();
+
+            if (cupon === "PRIMERCOMPRA") {
+                if (!descuentoAplicado) {
+                    total *= 0.8; // Aplicar descuento del 20%
+                    descuentoAplicado = true;
+                    totalElement.textContent = total.toFixed(2);
+                    cuponInput.style.backgroundColor = "lightgreen";
+                    cuponMensaje.textContent = "Descuento aplicado del 20% por cupón PRIMERCOMPRA.";
+                    cuponMensaje.style.display = "block";
+                } else {
+                    cuponInput.style.backgroundColor = "lightcoral";
+                    cuponMensaje.textContent = "El cupón PRIMERCOMPRA ya ha sido aplicado.";
+                    cuponMensaje.style.display = "block";
+                }
+            } else {
+                cuponInput.style.backgroundColor = "lightcoral";
+                cuponMensaje.textContent = "Cupón inválido. Intente de nuevo.";
+                cuponMensaje.style.display = "block";
+            }
+
+            // Limpiar campo de cupón después de aplicarlo
+            cuponInput.value = "";
+        });
     } else {
-        cuponInput.style.backgroundColor = "lightcoral";
-        cuponMensaje.textContent = "Cupón inválido. Intente de nuevo.";
-        cuponMensaje.style.display = "block";
+        console.error('Elemento "aplicar-cupon-btn" no encontrado.');
     }
-
-    // Limpiar campo de cupón después de aplicarlo
-    cuponInput.value = "";
 });
 
-// Event listener para finalizar la compra
-finalizarCompraBtn.addEventListener("click", function() {
-    // Verificar si hay productos en el carrito
-    if (productosEnCarrito.length === 0) {
-        mensajeFinalizarCompra.textContent = "No hay productos en el carrito. Agregue productos para realizar la compra.";
-        mensajeFinalizarCompra.style.color = "red";
-        mensajeFinalizarCompra.style.display = "block";
-    } else {
-        mensajeFinalizarCompra.textContent = "¡Compra finalizada! Gracias por tu compra.";
-        mensajeFinalizarCompra.style.color = "green";
-        mensajeFinalizarCompra.style.display = "block";
-        setTimeout(function() {
-            mensajeFinalizarCompra.style.display = "none";
-            reiniciarCarrito(); // Esta función debería reiniciar el carrito después de la compra
-        }, 3000); // Ocultar el mensaje después de 3 segundos (3000 milisegundos)
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    // Event listener para finalizar la compra
+    finalizarCompraBtn.addEventListener("click", function() {
+        // Verificar si hay productos en el carrito
+        if (productosEnCarrito.length === 0) {
+            mensajeFinalizarCompra.textContent = "No hay productos en el carrito. Agregue productos para realizar la compra.";
+            mensajeFinalizarCompra.style.color = "red";
+            mensajeFinalizarCompra.style.display = "block";
+        } else {
+            mensajeFinalizarCompra.textContent = "¡Compra finalizada! Gracias por tu compra.";
+            mensajeFinalizarCompra.style.color = "green";
+            mensajeFinalizarCompra.style.display = "block";
+            setTimeout(function() {
+                mensajeFinalizarCompra.style.display = "none";
+                reiniciarCarrito(); // Esta función debería reiniciar el carrito después de la compra
+            }, 3000); // Ocultar el mensaje después de 3 segundos (3000 milisegundos)
+        }
+    });
 });
 
 // Función para reiniciar el carrito después de finalizar la compra
@@ -313,7 +343,7 @@ function cerrarModal() {
     document.getElementById('modalBackdrop').style.display = 'none';
 }
 
-/// juego en js
+/// juego en js de adivinar el numero
 
     const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
     let intentos = 0;
@@ -345,14 +375,19 @@ function cerrarModal() {
       intentos = 0;
     }
 
-    document.addEventListener('DOMContentLoaded', (event) => {
+// slider que cambia el tamaño del cubo
+    document.addEventListener('DOMContentLoaded', function() {
+        // Agregar aquí tu lógica que necesita el DOM completamente cargado
         const deslizador = document.getElementById('deslizador');
-        const divRedimensionable = document.getElementById('div-redimensionable');
-
-        deslizador.addEventListener('input', function() {
-            const nuevoTamano = deslizador.value + 'px';
-            divRedimensionable.style.width = nuevoTamano;
-            divRedimensionable.style.height = nuevoTamano;
-        });
-    });
+        const divRedimensionable = document.getElementById('redimensionable');
     
+        if (deslizador && divRedimensionable) {
+            deslizador.addEventListener('input', function() {
+                const nuevoTamano = deslizador.value + 'px';
+                divRedimensionable.style.width = nuevoTamano;
+                divRedimensionable.style.height = nuevoTamano;
+            });
+        } else {
+            console.error('Elementos no encontrados.');
+        }
+    });
