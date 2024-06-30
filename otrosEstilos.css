@@ -19,18 +19,18 @@ body.light-mode nav * {
 
 /* Estilos para el modo oscuro */
 body.dark-mode * {
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 
 .dark-mode .contenedor * {
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 
 
 body.dark-mode nav *{
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 
@@ -151,18 +151,18 @@ body.light-mode nav * {
 
 /* Estilos para el modo oscuro */
 body.dark-mode * {
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 
 .dark-mode #cssinfo * {
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 
 
 body.dark-mode nav *{
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 
@@ -496,4 +496,29 @@ footer {
     background-color: rgba(158, 0, 0, 0.623);
     transition: width 0.2s, height 0.2s;
     border-radius: 10px; /* Para una transición suave */
+}
+
+/* Finalizar compra */
+
+
+#cuerpoFinalizarCompra {
+    min-height: 600px;
+    height: auto;
+    border: 1px solid;
+    border-radius: 20px;
+    margin: auto;
+    width: 60%;
+}
+
+#resumen-compra img{
+    max-width: 100px;
+    max-height: 100px;
+
+}
+#resumen-compra #productos {
+    border: 1px solid;
+    display: block;
+    font-size: 30px;
+
+
 }

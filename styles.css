@@ -54,7 +54,7 @@ body {
     max-height: 700px; 
     overflow-y: auto;
     scroll-behavior: auto;
-    background-color: #242424;
+    background-color: #010014;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -84,7 +84,7 @@ body.light-mode #carrito-contendor{
 
 }
 body.dark-mode #carrito-contendor{
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 /*
@@ -123,18 +123,18 @@ body.light-mode nav * {
 
 /* Estilos para el modo oscuro */
 body.dark-mode * {
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 
 body.dark-mode .contenedor * {
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 
 
 body.dark-mode nav *{
-    background-color: #242424;
+    background-color: #010014;
     color: #ffffff;
 }
 /**CUPON DE DESCUENTO*/
@@ -161,7 +161,7 @@ header {
     position: sticky;
 }
 nav {
-    background-color: #242424;
+    background-color: #010014;
     color: #fff;
     padding: 10px 0;
     height: 100px;
@@ -205,7 +205,7 @@ nav ul li a:hover {
     
 }
 .contenedor { 
-    background-color: #242424;
+    background-color: #010014;
     margin: auto;
     width: 1100px;
     height: auto;
@@ -391,9 +391,10 @@ body.light-mode .product button img:hover {
    /* box-shadow: 0 4px 12px rgb(59, 59, 59);*/
 }
 .product button img:hover {
-    box-shadow: 0 4px 12px rgb(134, 134, 134);
+    box-shadow: 0 4px 12px rgb(131, 131, 131);
     border-radius: 15px; 
-    background-color: #111111;
+    background-color: #000218a6;
+    border: 1px white;
     padding-left: 5px;
     padding-top: 5px;
     transform: scale(1.08);
@@ -423,11 +424,18 @@ body.light-mode .product button img:hover {
     transition: 0.3s ease;
     color: #000000;
 }
-.product:hover {
-    box-shadow:0 4px 15px rgb(0, 0, 0);
+.light-mode .product:hover {
+    box-shadow:0 4px 15px rgb(0, 66, 128);
     transform: scale(1.1);
     border: 1px solid;
-    border-color: black;
+    border-color: rgb(0, 0, 0);
+}
+.product:hover {
+    box-shadow:0 4px 15px rgb(108, 172, 255);
+    transform: scale(1.1);
+    border: 1px solid;
+    border-color: rgb(255, 255, 255);
+   
     
     
 }

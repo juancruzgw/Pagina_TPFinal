@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="otrosEstilos.css">
+
+    <link rel="icon" href="./imagenes/logopag.png">
+    <script src="funciones.js" defer></script>
+</head>
+<body>
+    <body class="dark-mode">
+    
+        <div class="contenedor">
+    
+            <header>
+                    <div id="logo">
+                            <img src="./imagenes/logopag.png">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="#product">Cursos</a></li>
+                            <li><a href="#frameW">FrameWorks</a></li>
+                            <li><a href="#" onclick="abrirModal()">Contacto</a></li>
+                        </ul>
+                    </nav>
+                    <div class="modo">
+                        <div id="modo" onclick="toggleMode()"> <img id="noche" src="imagenes/day1.png"> </div>
+                    </div>
+            </header>
+
+            <div id="cuerpoFinalizarCompra">
+                    <div id="resumen-compra">
+                        <h2>Resumen de tu compra</h2>
+                        <div id="productos"></div>
+                        <h3>Total: $<span id="total"></span></h3>
+                        <button id="confirmar-compra-btn">Confirmar Compra</button>
+
+                    </div>
+                    <div id="pagar">
+                        <form id="pago-formulario">
+                            <h2>Detalles de Pago</h2>
+                            <div class="form-group">
+                                <label for="nombre-titular">Nombre del Titular</label>
+                                <input type="text" id="nombre-titular" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="numero-tarjeta">Número de Tarjeta</label>
+                                <input type="text" id="numero-tarjeta" maxlength="16" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha-vencimiento">Fecha de Vencimiento</label>
+                                <input type="text" id="fecha-vencimiento" placeholder="MM/AA" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="codigo-cvv">Código CVV</label>
+                                <input type="text" id="codigo-cvv" maxlength="3" required>
+                            </div>
+                            <button type="submit">Pagar</button>
+                    </div>
+                
+            </div>
+
+            <footer>
+                <div class="footer-contenido">
+                    <div id="contacto" onclick="abrirModal()">
+                        <img src="imagenes/telefono.png" alt="Contacto"><p>CONTACTANOS</p>
+                    </div>
+                    <div id="modalContacto" class="modal">
+                        <div class="modal-contenido">
+                            <span class="cerrar" onclick="cerrarModal()">X</span>
+                            <h2>¡Seguinos en nuestras redes sociales!</h2>
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/">
+                                        <img src="imagenes/facebookicon.png" alt="Facebook">
+                                        <span>bootcamp21</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/">
+                                        <img src="imagenes/twittericon.png" alt="Twitter">
+                                        <span>bootcamp21</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/">
+                                        <img src="imagenes/Instagram_logo.png" alt="Instagram">
+                                        <span>@bootcamp21</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:bootcamp@gmail.com">
+                                        <img src="imagenes/Gmail_icon.png" alt="Gmail">
+                                        <span>bootcamp@gmail.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="imagenes/telefono.png" alt="Teléfono">
+                                        <span>+299 4 444111</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com">
+                                        <img src="imagenes/Youtube_logo.png" alt="YouTube">
+                                        <span>Canal: bootcamp21</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="modalBackdrop" class="modal-backdrop" onclick="cerrarModal()"></div>
+            
+                    <div class="contactos">
+                        
+                        <div id="redes-sociales">
+                           
+                        </div>
+                    </div>
+            
+                    <div >
+                        <p>&copy; 2024 Bootcamp</p>
+                    
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+    
+</body>
+</html>
