@@ -28,18 +28,24 @@
                         </ul>
                     </nav>
                     <div class="modo">
-                        <div id="modo" onclick="toggleMode()"> <img id="noche" src="imagenes/day1.png"> </div>
+                        <div id="modo" > <img id="noche" src="imagenes/day1.png"> </div>
                     </div>
             </header>
 
             <div id="cuerpoFinalizarCompra">
-                    <div id="resumen-compra">
-                        <h2>Resumen de tu compra</h2>
-                        <div id="productos"></div>
-                        <h3>Total: $<span id="total"></span></h3>
-                        <button id="confirmar-compra-btn">Confirmar Compra</button>
+                        <div id="resumen-compra">
+                                 <h2>Resumen de tu compra</h2>
+                                <div id="productos">
+                                    
+                                </div>
+                                <h3>Total: $<span id="total"></span></h3>
+                                <input type="text" id="cupon-input" placeholder="Ingrese código de cupón">
+                                <button id="aplicar-cupon-btn">Aplicar Cupón</button>
+                                <div id="cupon-mensaje">
+                                    
+                                </div> <br>
 
-                    </div>
+                        </div>
                     <div id="pagar">
                         <form id="pago-formulario">
                             <h2>Detalles de Pago</h2>
@@ -55,11 +61,8 @@
                                 <label for="fecha-vencimiento">Fecha de Vencimiento</label>
                                 <input type="text" id="fecha-vencimiento" placeholder="MM/AA" required>
                             </div>
-                            <div class="form-group">
-                                <label for="codigo-cvv">Código CVV</label>
-                                <input type="text" id="codigo-cvv" maxlength="3" required>
-                            </div>
-                            <button type="submit">Pagar</button>
+                          
+                            <button id="confirmar-compra-btn">Confirmar Compra</button>
                     </div>
                 
             </div>

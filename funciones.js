@@ -353,7 +353,6 @@ function reiniciarCarrito() {
 
 
 
-
 // Función para agregar productos al carrito
 const botonCarrito = document.getElementById("boton-carro");
 const carritoContenedor = document.getElementById("carrito-contendor");
@@ -423,21 +422,21 @@ function actualizarCarrito() {
     totalElement.textContent = total.toFixed(2);
 }
 
-function eliminarProducto(nombreProducto, precioProducto) {
+function eliminarProducto(nombreProducto) {
     let productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     productosEnCarrito = productosEnCarrito.filter(producto => producto.nombre !== nombreProducto);
     localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
     actualizarCarrito();
 }
-
+// CHEQUEA SI PUSO EL CUPON //
 if (aplicarCuponBtn) {
     aplicarCuponBtn.addEventListener("click", function() {
         const cupon = cuponInput.value.trim();
 
         if (cupon === "PRIMERCOMPRA") {
             if (!descuentoAplicado) {
-                total *= 0.8; // Aplicar descuento del 20%
+                total *= 0.8; // Aplica descuento del 20%
                 descuentoAplicado = true;
                 totalElement.textContent = total.toFixed(2);
                 cuponInput.style.backgroundColor = "lightgreen";
@@ -460,7 +459,7 @@ if (aplicarCuponBtn) {
 } else {
     console.error('Elemento "aplicar-cupon-btn" no encontrado.');
 }
-
+// ESTO ES PARA EL INDEX.HTML
 function finalizarCompra() {
     let productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
     if (productosEnCarrito.length === 0) {
@@ -484,24 +483,27 @@ function reiniciarCarrito() {
     mensajeFinalizarCompra.style.display = "none";
 }
 
+// ESTE FINALIZAR ES PARA EL ULTIMO, EL DE "CONFIRMAR"
 
-//// FINALIZAR COMPRA ******** */
+//// FINALIZAR COMPRA ******** 
 
 document.addEventListener('DOMContentLoaded', function() {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const productosContainer = document.getElementById('productos');
     const totalElement = document.getElementById('total');
-    let total = 0;
+   // let total = 0;
 
     carrito.forEach(producto => {
         total += producto.precio;
         const productoElement = document.createElement('div');
         productoElement.classList.add('producto');
         productoElement.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-            <span>${producto.nombre}</span>
-            <span>$${producto.precio.toFixed(2)}</span>
-        `;
+        <img src="${producto.imagen}" alt="${producto.nombre}">
+        <div class="producto-info">
+            <span class="producto-nombre">${producto.nombre}</span>
+            <span class="producto-precio">$${producto.precio.toFixed(2)}</span>
+        </div>
+    `;
         productosContainer.appendChild(productoElement);
     });
 
@@ -510,9 +512,14 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('confirmar-compra-btn').addEventListener('click', () => {
         alert('Compra confirmada. ¡Gracias por tu compra!');
         localStorage.removeItem('carrito');
-        window.location.href = 'finalizaCompra.html';
+        window.location.href = 'index.html';
     });
 });
+
+
+
+
+
 
 //// contactos
 
@@ -538,18 +545,18 @@ function cerrarModal() {
       const guess = parseInt(guessInput.value);
 
       if (isNaN(guess) || guess < 1 || guess > 100) {
-        message.textContent = 'Por favor ingresa un número válido entre 1 y 100.';
+        message.textContent = 'Ingresa un numero valido entre 1 y 100';
       } else {
         intentos++;
 
         if (guess === numeroAleatorio) {
-          message.textContent = `¡Felicidades! Adivinaste el número en ${intentos} intentos.`;
+          message.textContent = `Ganaste! Adivinaste el número en ${intentos} intentos.`;
           
           reiniciarJuego();
         } else if (guess < numeroAleatorio) {
-          message.textContent = 'El número es mayor. Intenta de nuevo.';
+          message.textContent = 'Es mayor!';
         } else {
-          message.textContent = 'El número es menor. Intenta de nuevo.';
+          message.textContent = 'Es menor!';
         }
       }
     }

@@ -123,9 +123,46 @@ section li:hover {
 #dato #textoHTML{
     width: 300px;
 }
+#dato2  {
+  padding: 30px;
+
+}
 #dato2 img {
     margin-top: 200px;
     
+}
+#tipos p {
+  display: block;
+  font-size: 30px;
+}
+#tipos {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+ 
+}
+ h4 {
+  margin-bottom: 40px;
+  font-size: 35px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#tipos form {
+  border: 1px solid;
+  justify-content: center;
+  border-radius: 15px;
+  border-color:rgb(0, 0, 255) ;
+  width: 40%;
+  margin:auto;
+  padding: 20px;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
 
@@ -334,7 +371,7 @@ body.dark-mode nav *{
     
     width: 140px;
     height: 140px;
-    background-image: url('imagenes/cosa.png');
+    background-image: url('imagenes/perro.png');
     background-size: cover;
     animation: tranquilImageAnimation 6s infinite ease-in-out;
   }
@@ -365,6 +402,40 @@ body.dark-mode nav *{
     
 }
 
+#mouseover {
+    width: 80%;
+    padding: 20px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 700px;
+   
+
+}
+.contenedor-imagen {
+    position: relative;
+    width: 300px;
+    height: 280px;
+    overflow: hidden;
+    border: 3px solid rgb(0, 255, 234);
+    border-radius: 20px;
+    position: relative;
+    left: 300px;
+}
+.contenedor-imagen img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease-out;
+}
+.contenedor-imagen:hover img {
+    transform: translateY(220px); 
+}
+#transition {
+    
+    height: 300px;
+    font-size: 22px;
+}
 
 /*JS*/
 #cuerpoJS {
@@ -389,11 +460,6 @@ body.dark-mode nav *{
     max-height: 350px;
 }
 
-footer {
-    position: relative;
-   
-    clear: both;
-}
 
 
 /* MINI JUEGO EN JS*/
@@ -495,30 +561,122 @@ footer {
     height: 100px;
     background-color: rgba(158, 0, 0, 0.623);
     transition: width 0.2s, height 0.2s;
-    border-radius: 10px; /* Para una transición suave */
+    border: 3px solid color black;
+    border-radius: 3px; /* Para una transición suave */
 }
 
 /* Finalizar compra */
+#producto-info {
+ 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+    background-color: #999999 !important;
+   
+
+}
+#resumen-compra {
+  background-color: #999999;
+  padding: 10px;
+  margin: 10px;
+}
 
 
 #cuerpoFinalizarCompra {
     min-height: 600px;
     height: auto;
-    border: 1px solid;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 20px;
     margin: auto;
     width: 60%;
+    background-color: #999999 !important;
+    
+    
 }
 
 #resumen-compra img{
     max-width: 100px;
     max-height: 100px;
+    background-color: #999999 !important
 
 }
-#resumen-compra #productos {
-    border: 1px solid;
-    display: block;
-    font-size: 30px;
+#resumen-compra {
+  background-color: #999999 !important
+}
+/* Estilos para cada producto */
+.producto {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #999999 !important;
+  margin: 20px;
+}
 
+/* Estilos para la imagen del producto */
+.producto img {
+  max-width: 80px;
+  max-height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}
 
+/* Estilos para la información del producto */
+.producto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #999999 !important
+}
+
+/* Estilos para el nombre del producto */
+.producto-nombre {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+  background-color: #999999 !important;
+}
+
+/* Estilos para el precio del producto */
+.producto-precio {
+  font-size: 1em;
+  color: #666;
+  background-color: #999999 !important;
+}
+#confirmar-compra-btn {
+  margin: 10px;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+ /* background-color: #999999 !important;*/
+}
+
+#pagar, #pago-formulario, #form-group{
+  background-color: #999999 !important;
+}
+#pago-formulario {
+  font-size: 22px;
+
+}
+#confirmar-compra-btn {
+  background-color: rgb(0, 190, 0);
+  border: 1px solid;
+  color: #000000;
+  position: relative;
+  margin-top: 50px;
+  left: 60px;
+  transition: 0.7s ease;
+
+}
+#confirmar-compra-btn:hover {
+  scale: 1.1;
+  box-shadow:0 0px 15px rgb(255, 255, 255); 
+  background-color: rgb(0, 199, 0);
 }
