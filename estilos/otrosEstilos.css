@@ -371,7 +371,7 @@ body.dark-mode nav *{
     
     width: 140px;
     height: 140px;
-    background-image: url('imagenes/perro.png');
+    background-image: url('../imagenes/perro.png');
     background-size: cover;
     animation: tranquilImageAnimation 6s infinite ease-in-out;
   }
@@ -644,7 +644,23 @@ body.dark-mode nav *{
   font-size: 35px;
   
 }
-#resumen-compra {
+#resumen-compra h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 40px;
+  color:rgb(255, 255, 255);
+}
+
+.light-mode #resumen-compra h3{
+
+  color:rgb(0, 0, 0);
+ 
+}
+.dark-mode #resumen-compra h3{
+ 
+  color:rgb(255, 255, 255);
  
 }
 /* Estilos para cada producto */

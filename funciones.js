@@ -1,6 +1,16 @@
 
 //
 /*** MODO CLARO / MODO OSCURO */ // ALTERNA  
+document.addEventListener('DOMContentLoaded', function() {
+    var temaGuardado = localStorage.getItem('tema');
+    if (temaGuardado === 'oscuro') {
+        document.body.classList.add('dark-mode');
+        document.getElementById("noche").src = "../imagenes/day1.png";
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById("noche").src = "../imagenes/night1.png";
+    }
+});
 function toggleMode() {
     var body = document.body;
     var imagen = document.getElementById("noche");
@@ -9,32 +19,61 @@ function toggleMode() {
     if (body.classList.contains('light-mode')) {
         body.classList.remove('light-mode');
         body.classList.add('dark-mode');
-        imagen.src = "imagenes/day1.png";
+        imagen.src = "../imagenes/day1.png";
         localStorage.setItem('tema', 'oscuro');
-        carrito.style.backgroundImage = 'url(imagenes/carritomas.png)';
+        carrito.style.backgroundImage = 'url(../imagenes/carritomas.png)';
     
     } else {
-        imagen.src = "imagenes/night1.png";
+        imagen.src = "../imagenes/night1.png";
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
         localStorage.setItem('tema', 'claro');
-        carrito.style.backgroundImage = 'url(imagenes/carritoblanco.png)';
+        carrito.style.backgroundImage = 'url(../imagenes/carritoblanco.png)';
 
     }
 }
 
 // Aplicar el tema guardado al cargar la página ///   NO FUNCIONA :( 
+
+//
+/*
 document.addEventListener('DOMContentLoaded', function() {
     var temaGuardado = localStorage.getItem('tema');
+    var body = document.body;
+    var imagen = document.getElementById("noche");
+    var carrito = document.querySelector('.product button');
+
     if (temaGuardado === 'oscuro') {
-        document.body.classList.add('dark-mode');
-        document.getElementById("noche").src = "imagenes/day1.png";
+        body.classList.add('dark-mode');
+        imagen.src = "imagenes/day1.png";
+        carrito.style.backgroundImage = 'url(imagenes/carritomas.png)';
     } else {
-        document.body.classList.remove('dark-mode');
-        document.getElementById("noche").src = "imagenes/night1.png";
+        body.classList.add('light-mode');
+        imagen.src = "imagenes/night1.png";
+        carrito.style.backgroundImage = 'url(imagenes/carritoblanco.png)';
     }
 });
-//
+
+function toggleMode() {
+    var body = document.body;
+    var imagen = document.getElementById("noche");
+    var carrito = document.querySelector('.product button');
+    
+    if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        imagen.src = "imagenes/day1.png";
+        localStorage.setItem('tema', 'oscuro');
+        carrito.style.backgroundImage = 'url(imagenes/carritomas.png)';
+    } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        imagen.src = "imagenes/night1.png";
+        localStorage.setItem('tema', 'claro');
+        carrito.style.backgroundImage = 'url(imagenes/carritoblanco.png)';
+    }
+}*/
+/////
 
 // LINKS A PAGINAS
 document.addEventListener('DOMContentLoaded', function() {
