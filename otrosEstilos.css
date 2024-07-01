@@ -609,7 +609,7 @@ body.dark-mode nav *{
 }
 
 .dark-mode #cuerpoFinalizarCompra {
-  box-shadow: 0 0px 16px rgb(255, 255, 255);
+  box-shadow: 0 0px 16px rgba(153, 153, 153, 0.747);
 }
 
 #cuerpoFinalizarCompra {

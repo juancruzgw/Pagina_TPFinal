@@ -152,15 +152,17 @@ function validarFormularioConsulta() {
 
 // USO GET ELEMENT BY ID DE TODOS LOS ELEMENTOS QUE VOY A NECESITAR //
 
-const botonCarrito = document.getElementById("boton-carro");
-const carritoContenedor = document.getElementById("carrito-contendor");
-const cuponInput = document.getElementById("cupon-input");
-const aplicarCuponBtn = document.getElementById("aplicar-cupon-btn");
-const cuponMensaje = document.getElementById("cupon-mensaje");
-const finalizarCompraBtn = document.getElementById("finalizar-compra-btn");
+const botonCarrito = document.getElementById("boton-carro"); // el boton azul para abril el carrito 
+const carritoContenedor = document.getElementById("carrito-contendor"); // todo el carrito oculto
+
+const cuponInput = document.getElementById("cupon-input"); // input del cupon, (en pagina finalizaCompra.html)
+const aplicarCuponBtn = document.getElementById("aplicar-cupon-btn"); // boton de aplicar cupon
+const cuponMensaje = document.getElementById("cupon-mensaje"); //mensaje si se aplico el cupon
+const finalizarCompraBtn = document.getElementById("finalizar-compra-btn"); // finaliza compra
 const mensajeFinalizarCompra = document.getElementById("mensaje-finalizar-compra");
-const carrito = document.getElementById("cart");
-const totalElement = document.getElementById("total");
+
+const carrito = document.getElementById("cart"); //donde se van acumulando los productos
+const totalElement = document.getElementById("total"); // suma de todos los cursos
 let total = 0;
 let descuentoAplicado = false;
 
@@ -217,7 +219,7 @@ function actualizarCarrito() {
             `<img src="${producto.imagen}" style="width: 50px; height: auto;">
             <p>${producto.nombre}</p>
             <p>Precio: $${producto.precio}</p>
-            <button class="eliminar-producto" onclick="eliminarProducto('${producto.nombre}', ${producto.precio})">Eliminar del carrito</button>`;
+            <button class="eliminar-producto" onclick="eliminarProducto('${producto.nombre}', ${producto.precio})">Eliminar</button>`;
 
         // agrego el nuevo elemento <div> al elemento 'carrito' en el DOM.
         carrito.appendChild(productoEnCarrito);
