@@ -470,14 +470,32 @@ body.light-mode .product button img:hover {
     justify-content: space-between;
    
 }
+
+
 .consulta img{
     max-width: 270px;
     max-height: 270px;
    position: relative;
    right: 20px;
+   top: 50px;
+   animation: respirar 6s infinite alternate ease-in-out;
+   transition: transform 1s ease-in-out;
    
-    
 }
+
+@keyframes respirar {
+    0% {
+        transform: translateY(7px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-5px) ;
+    }
+    100% {
+        transform: translateY(7px) rotate(-1deg);
+    }
+}
+
+
 .consulta div {
    /* margin-left: 70px;
     margin-top: 50px;*/

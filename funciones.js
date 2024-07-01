@@ -1,37 +1,6 @@
 
-/*** MODO CLARO / MODO OSCURO 
-function toggleMode() {
-    var body = document.body;
-    var imagen = document.getElementById("noche");
-
-    // Alternar entre las clases light-mode y dark-mode
-    if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        imagen.src = "imagenes/day1.png";
-
-        localStorage.setItem('tema', 'oscuro');
-    
-    } else {
-        imagen.src = "imagenes/night1.png"
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        localStorage.setItem('tema', 'claro');
-    }
-}
-// INTENTO DE USAR EL LOCAL STORAGE
-document.addEventListener('DOMContentLoaded', function() {
-    var temaGuardado = localStorage.getItem('tema');
-    if (temaGuardado === 'oscuro') {
-        document.body.classList.add('dark-mode');
-        document.getElementById("noche").src = "imagenes/day1.png";
-    } else {
-        document.body.classList.remove('dark-mode');
-        document.getElementById("noche").src = "imagenes/night1.png";
-    }
-});*/
 //
-/*** MODO CLARO / MODO OSCURO */
+/*** MODO CLARO / MODO OSCURO */ // ALTERNA  
 function toggleMode() {
     var body = document.body;
     var imagen = document.getElementById("noche");
@@ -54,7 +23,7 @@ function toggleMode() {
     }
 }
 
-// Aplicar el tema guardado al cargar la página
+// Aplicar el tema guardado al cargar la página ///   NO FUNCIONA :( 
 document.addEventListener('DOMContentLoaded', function() {
     var temaGuardado = localStorage.getItem('tema');
     if (temaGuardado === 'oscuro') {
@@ -176,184 +145,13 @@ function validarFormularioConsulta() {
     }
 }
 
-/*
-const botonCarrito = document.getElementById("boton-carro");
-const carritoContenedor = document.getElementById("carrito-contendor");
 
-document.addEventListener('DOMContentLoaded', function() {
-    const botonCarrito = document.getElementById("boton-carro");
-    const carritoContenedor = document.getElementById("carrito-contendor");
-
-    if (botonCarrito && carritoContenedor) {
-        botonCarrito.addEventListener("click", function() {
-            carritoContenedor.classList.toggle("hidden");
-        });
-    } else {
-        console.error('Uno o más elementos no fueron encontrados.');
-    }
-});*/
-
-
-
-
-/***** AGREGAR AL CARRITO ******/
-/*
-const botonCarrito = document.getElementById("boton-carro");
-const carritoContenedor = document.getElementById("carrito-contendor");
-const cuponInput = document.getElementById("cupon-input");
-const aplicarCuponBtn = document.getElementById("aplicar-cupon-btn");
-const cuponMensaje = document.getElementById("cupon-mensaje");
-const finalizarCompraBtn = document.getElementById("finalizar-compra-btn");
-const mensajeFinalizarCompra = document.getElementById("mensaje-finalizar-compra");
-
-document.addEventListener('DOMContentLoaded', function() {
-    const botonCarrito = document.getElementById("boton-carro");
-    const carritoContenedor = document.getElementById("carrito-contendor");
-
-    if (botonCarrito && carritoContenedor) {
-        botonCarrito.addEventListener("click", function() {
-            carritoContenedor.classList.toggle("hidden");
-        });
-    } else {
-        console.error('Uno o más elementos no fueron encontrados.');
-    }
-});
-
-
-
-const carrito = document.getElementById("cart");
-const totalElement = document.getElementById("total");
-let total = 0;
-let productosEnCarrito = [];
-let descuentoAplicado = false;
-
-function agregarProducto(nombreProducto, precioProducto, imagenURL) {
-    if (productosEnCarrito.includes(nombreProducto)) {
-        cuponInput.style.backgroundColor = "lightcoral";
-        return;
-    }
-
-    const productoEnCarrito = document.createElement("div");
-    productoEnCarrito.classList.add("producto-en-carrito");
-    productoEnCarrito.innerHTML = 
-        '<img src="' + imagenURL + '" style="width: 50px; height: auto;">' +
-        '<p>' + nombreProducto + '</p>' +
-        '<p>Precio: $' + precioProducto.toFixed(2) + '</p>' +
-        '<button class="eliminar-producto" onclick="eliminarProducto(\'' + nombreProducto + '\', ' + precioProducto + ')">Eliminar del carrito</button>';
-
-    carrito.appendChild(productoEnCarrito);
-
-    productosEnCarrito.push(nombreProducto);
-
-    if (descuentoAplicado) {
-        total += precioProducto * 0.8;
-    } else {
-        total += precioProducto;
-    }
-
-    totalElement.textContent = total.toFixed(2);
-}
-
-function eliminarProducto(nombreProducto, precioProducto) {
-    const productosEnCarritoDOM = carrito.getElementsByClassName("producto-en-carrito");
-    for (let i = 0; i < productosEnCarritoDOM.length; i++) {
-        const producto = productosEnCarritoDOM[i];
-        const nombre = producto.getElementsByTagName("p")[0].textContent;
-        if (nombre === nombreProducto) {
-            carrito.removeChild(producto);
-            break;
-        }
-    }
-
-    if (descuentoAplicado) {
-        total -= precioProducto * 0.8;
-    } else {
-        total -= precioProducto;
-    }
-
-    totalElement.textContent = total.toFixed(2);
-
-    const index = productosEnCarrito.indexOf(nombreProducto);
-    if (index !== -1) {
-        productosEnCarrito.splice(index, 1);
-    }
-}
-
-// Event listener para aplicar el cupón
-document.addEventListener('DOMContentLoaded', function() {
-    const aplicarCuponBtn = document.getElementById("aplicar-cupon-btn");
-
-    if (aplicarCuponBtn) {
-        aplicarCuponBtn.addEventListener("click", function() {
-            const cupon = cuponInput.value.trim();
-
-            if (cupon === "PRIMERCOMPRA") {
-                if (!descuentoAplicado) {
-                    total *= 0.8; // Aplicar descuento del 20%
-                    descuentoAplicado = true;
-                    totalElement.textContent = total.toFixed(2);
-                    cuponInput.style.backgroundColor = "lightgreen";
-                    cuponMensaje.textContent = "Descuento aplicado del 20% por cupón PRIMERCOMPRA.";
-                    cuponMensaje.style.display = "block";
-                } else {
-                    cuponInput.style.backgroundColor = "lightcoral";
-                    cuponMensaje.textContent = "El cupón PRIMERCOMPRA ya ha sido aplicado.";
-                    cuponMensaje.style.display = "block";
-                }
-            } else {
-                cuponInput.style.backgroundColor = "lightcoral";
-                cuponMensaje.textContent = "Cupón inválido. Intente de nuevo.";
-                cuponMensaje.style.display = "block";
-            }
-
-            // Limpiar campo de cupón después de aplicarlo
-            cuponInput.value = "";
-        });
-    } else {
-        console.error('Elemento "aplicar-cupon-btn" no encontrado.');
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Event listener para finalizar la compra
-    finalizarCompraBtn.addEventListener("click", function() {
-        // Verificar si hay productos en el carrito
-        if (productosEnCarrito.length === 0) {
-            mensajeFinalizarCompra.textContent = "No hay productos en el carrito. Agregue productos para realizar la compra.";
-            mensajeFinalizarCompra.style.color = "red";
-            mensajeFinalizarCompra.style.display = "block";
-        } else {
-            mensajeFinalizarCompra.textContent = "¡Compra finalizada! Gracias por tu compra.";
-            mensajeFinalizarCompra.style.color = "green";
-            mensajeFinalizarCompra.style.display = "block";
-            setTimeout(function() {
-                mensajeFinalizarCompra.style.display = "none";
-                reiniciarCarrito(); // Esta función debería reiniciar el carrito después de la compra
-            }, 3000); // Ocultar el mensaje después de 3 segundos (3000 milisegundos)
-        }
-    });
-});
-
-// Función para reiniciar el carrito después de finalizar la compra
-function reiniciarCarrito() {
-    carrito.innerHTML = ""; // Vaciar el contenido del carrito
-    total = 0; // Reiniciar el total a cero
-    totalElement.textContent = total.toFixed(2); // Actualizar el elemento total mostrado
-    productosEnCarrito = []; // Reiniciar el arreglo de productos en el carrito
-    descuentoAplicado = false; // Reiniciar el estado del descuento aplicado
-    cuponInput.style.backgroundColor = ""; // Limpiar el color de fondo del input de cupón
-    cuponInput.value = ""; // Limpiar campo de cupón
-    cuponMensaje.textContent = ""; // Limpiar mensaje de cupón
-    cuponMensaje.style.display = "none"; // Ocultar mensaje de cupón
-    mensajeFinalizarCompra.textContent = ""; // Limpiar mensaje de finalización de compra
-    mensajeFinalizarCompra.style.display = "none"; // Ocultar mensaje de finalización de compra
-}
-*/
-
-
-
+/** AGREGAR AL CARRITO */
 
 // Función para agregar productos al carrito
+
+// USO GET ELEMENT BY ID DE TODOS LOS ELEMENTOS QUE VOY A NECESITAR //
+
 const botonCarrito = document.getElementById("boton-carro");
 const carritoContenedor = document.getElementById("carrito-contendor");
 const cuponInput = document.getElementById("cupon-input");
@@ -366,50 +164,62 @@ const totalElement = document.getElementById("total");
 let total = 0;
 let descuentoAplicado = false;
 
+
+// 2 CARGO LOS ELEMENTOS DEL DOM
+
 document.addEventListener('DOMContentLoaded', function() {
     if (botonCarrito && carritoContenedor) {
         botonCarrito.addEventListener("click", function() {
             carritoContenedor.classList.toggle("hidden");
         });
-    } else {
-        console.error('Uno o más elementos no fueron encontrados.');
-    }
-
-    actualizarCarrito();
+    } 
+    actualizarCarrito(); //para empezar en 0 
     if (finalizarCompraBtn) {
         finalizarCompraBtn.addEventListener("click", finalizarCompra);
-    } else {
-        console.error('Elemento "finalizar-compra-btn" no encontrado.');
-    }
+    } 
 });
+
+
+
+// FUNCION DE AGREGAR EL PRODUCTO
 
 function agregarProducto(nombreProducto, precioProducto, imagenURL) {
     let productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     if (productosEnCarrito.some(producto => producto.nombre === nombreProducto)) {
         cuponInput.style.backgroundColor = "lightcoral";
+        //SI ENTRA, ES PORQUE YA EXISTE ESE PROD EN EL CARRITO
+        alert("Este curso ya esta agregado al carrito");
+        
         return;
     }
-
-    productosEnCarrito.push({ nombre: nombreProducto, precio: precioProducto, imagen: imagenURL });
+    // push, agrego el obj al carrito de productosEnCarrito[], 
+    productosEnCarrito.push({  nombre: nombreProducto, 
+                                precio: precioProducto, 
+                                imagen: imagenURL });// aca se crea el obj
+         // actualizo el local storage para que quede guardado                       
     localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
     actualizarCarrito();
 }
 
 function actualizarCarrito() {
+    //Obtiene los productos del carrito almacenados en localStorage o inicializar un arreglo vacio si no hay datos
     let productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
     carrito.innerHTML = '';
     total = 0;
-
+   // (forEach) recorre todos los productos en productosEnCarrito
     productosEnCarrito.forEach(producto => {
+        //creo un div para poner cada producto en el carrito y con el classList.add se asigno la clase
         const productoEnCarrito = document.createElement("div");
         productoEnCarrito.classList.add("producto-en-carrito");
+        //aca pongo en el HTML todos los atributos del obj producto, que seria la foto, el nombre y el precio //
         productoEnCarrito.innerHTML = 
             `<img src="${producto.imagen}" style="width: 50px; height: auto;">
             <p>${producto.nombre}</p>
-            <p>Precio: $${producto.precio.toFixed(2)}</p>
+            <p>Precio: $${producto.precio}</p>
             <button class="eliminar-producto" onclick="eliminarProducto('${producto.nombre}', ${producto.precio})">Eliminar del carrito</button>`;
 
+        // agrego el nuevo elemento <div> al elemento 'carrito' en el DOM.
         carrito.appendChild(productoEnCarrito);
 
         if (descuentoAplicado) {
@@ -419,7 +229,7 @@ function actualizarCarrito() {
         }
     });
 
-    totalElement.textContent = total.toFixed(2);
+    totalElement.textContent = total;
 }
 
 function eliminarProducto(nombreProducto) {
@@ -438,7 +248,7 @@ if (aplicarCuponBtn) {
             if (!descuentoAplicado) {
                 total *= 0.8; // Aplica descuento del 20%
                 descuentoAplicado = true;
-                totalElement.textContent = total.toFixed(2);
+                totalElement.textContent = total;
                 cuponInput.style.backgroundColor = "lightgreen";
                 cuponMensaje.textContent = "Descuento aplicado del 20% por cupón PRIMERCOMPRA.";
                 cuponMensaje.style.display = "block";
@@ -501,13 +311,13 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="${producto.imagen}" alt="${producto.nombre}">
         <div class="producto-info">
             <span class="producto-nombre">${producto.nombre}</span>
-            <span class="producto-precio">$${producto.precio.toFixed(2)}</span>
+            <span class="producto-precio">$${producto.precio}</span>
         </div>
     `;
         productosContainer.appendChild(productoElement);
     });
 
-    totalElement.textContent = total.toFixed(2);
+    totalElement.textContent = total;
 
     document.getElementById('confirmar-compra-btn').addEventListener('click', () => {
         alert('Compra confirmada. ¡Gracias por tu compra!');
@@ -521,14 +331,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//// contactos
+//// contactos abrir y cerrar modal/solapa
 
 function abrirModal() {
     document.getElementById('modalContacto').style.display = 'block';
     document.getElementById('modalBackdrop').style.display = 'block';
 }
-
-// Función para cerrar el modal de contacto
 function cerrarModal() {
     document.getElementById('modalContacto').style.display = 'none';
     document.getElementById('modalBackdrop').style.display = 'none';
@@ -539,32 +347,32 @@ function cerrarModal() {
     const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
     let intentos = 0;
 
-    function adivinarNumero() {
-      const guessInput = document.getElementById('guessInput');
-      const message = document.getElementById('message');
-      const guess = parseInt(guessInput.value);
+function adivinarNumero() {
+    const entradaNumero = document.getElementById('guessInput');
+    const mensaje = document.getElementById('message');
+    const intento = parseInt(entradaNumero.value);
 
-      if (isNaN(guess) || guess < 1 || guess > 100) {
-        message.textContent = 'Ingresa un numero valido entre 1 y 100';
-      } else {
-        intentos++;
+  if (isNaN(intento) || intento < 1 || intento > 100) {
+    mensaje.textContent = 'Ingresa un número válido entre 1 y 100';
+  } else {
+    intentos++;
 
-        if (guess === numeroAleatorio) {
-          message.textContent = `Ganaste! Adivinaste el número en ${intentos} intentos.`;
-          
-          reiniciarJuego();
-        } else if (guess < numeroAleatorio) {
-          message.textContent = 'Es mayor!';
-        } else {
-          message.textContent = 'Es menor!';
-        }
-      }
+    if (intento === numeroAleatorio) {
+      mensaje.textContent = `Ganaste! Adivinaste el número en ${intentos} intentos.`;
+      
+      reiniciarJuego();
+    } else if (intento < numeroAleatorio) {
+      mensaje.textContent = 'es mayor!';
+    } else {
+      mensaje.textContent = 'es menor!';
     }
+  }
+}
 
-    function reiniciarJuego() {
-      numeroAleatorio = Math.floor(Math.random() * 100) + 1;
-      intentos = 0;
-    }
+function reiniciarJuego() {
+  numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+  intentos = 0;
+}
 
 // slider que cambia el tamaño del cubo
     document.addEventListener('DOMContentLoaded', function() {
@@ -574,11 +382,58 @@ function cerrarModal() {
     
         if (deslizador && divRedimensionable) {
             deslizador.addEventListener('input', function() {
-                const nuevoTamano = deslizador.value + 'px';
-                divRedimensionable.style.width = nuevoTamano;
-                divRedimensionable.style.height = nuevoTamano;
+                const nuevoTamanio = deslizador.value + 'px';
+                divRedimensionable.style.width = nuevoTamanio;
+                divRedimensionable.style.height = nuevoTamanio;
             });
-        } else {
-            console.error('Elementos no encontrados.');
-        }
+        } 
     });
+
+
+// valido el confirmar compra (4) campos nomas
+
+// Obtener referencias a los elementos del formulario
+const nombreTitularInput = document.getElementById('nombre-titular');
+const numeroTarjetaInput = document.getElementById('numero-tarjeta');
+const fechaVencimientoInput = document.getElementById('fecha-vencimiento');
+const confirmarCompraBtn = document.getElementById('confirmar-compra-btn');
+
+// Agregar evento al botón de confirmar compra para validar el formulario
+confirmarCompraBtn.addEventListener('click', function(event) {
+    // Validación del nombre del titular
+    if (nombreTitularInput.value.trim() === '') {
+        alert('Por favor, ingresa el nombre del titular.');
+        event.preventDefault(); // Evitar que se envíe el formulario
+        return;
+    }
+
+    // Validación del número de tarjeta (debe contener solo dígitos y tener longitud 16)
+    const numeroTarjeta = numeroTarjetaInput.value.trim();
+    if (!/^\d{16}$/.test(numeroTarjeta)) {
+        alert('Por favor, ingresa un número de tarjeta válido (16 dígitos numéricos).');
+        event.preventDefault(); // Evitar que se envíe el formulario
+        return;
+    }
+
+    // Validación de la fecha de vencimiento (debe tener el formato MM/AA)
+    const fechaVencimiento = fechaVencimientoInput.value.trim();
+    if (!/^\d{2}\/\d{2}$/.test(fechaVencimiento)) {
+        alert('Por favor, ingresa una fecha de vencimiento válida en formato MM/AA.');
+        event.preventDefault(); // Evitar que se envíe el formulario
+        return;
+    }
+
+    // Separar mes y año para validar
+    const partesFecha = fechaVencimiento.split('/');
+    const mes = parseInt(partesFecha[0], 10);
+    const año = parseInt(partesFecha[1], 10);
+
+    if (isNaN(mes) || isNaN(año) || mes < 1 || mes > 12 || año < 0 || año > 99) {
+        alert('Por favor, ingresa una fecha de vencimiento válida en formato MM/AA.');
+        event.preventDefault(); // Evitar que se envíe el formulario
+        return;
+    }
+
+    // Si todas las validaciones pasan, el formulario se enviará
+    alert('¡Compra confirmada!');
+});
