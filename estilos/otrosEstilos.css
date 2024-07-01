@@ -609,7 +609,8 @@ body.dark-mode nav *{
 }
 
 .dark-mode #cuerpoFinalizarCompra {
-  box-shadow: 0 0px 16px rgba(153, 153, 153, 0.747);
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.747);
+  border: #000000;
 }
 
 #cuerpoFinalizarCompra {
@@ -757,3 +758,120 @@ body.dark-mode nav *{
   box-shadow:0 0px 15px rgb(255, 255, 255); 
   background-color: rgb(0, 199, 0);
 }
+
+
+/* Estilos generales para el formulario de pago */
+#pago-formulario {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#pago-formulario h2 {
+  text-align: center;
+  
+  margin-bottom: 20px;
+}
+
+#pago-formulario label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+ 
+}
+
+#pago-formulario input[type="text"],
+#pago-formulario input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#pago-formulario input[type="text"]:focus,
+#pago-formulario input[type="date"]:focus {
+  border-color: #777;
+  outline: none;
+}
+
+#pago-formulario .form-group {
+  margin-bottom: 20px;
+}
+
+#confirmar-compra-btn {
+  display: block;
+  width: 80%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#confirmar-compra-btn:hover {
+  background-color: #45a049;
+}
+
+/* Estilo adicional para los datalist */
+#metodoPago {
+  margin-bottom: 20px;
+}
+
+#opcionesPago option {
+  font-size: 14px;
+  padding: 10px;
+}
+
+#pagar {
+  margin: 20px;
+}
+
+#cupon-input {
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 80% ;
+  box-sizing: border-box;
+}
+
+#aplicar-cupon-btn {
+  background-color: #45af49; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#aplicar-cupon-btn:hover {
+  background-color: #359439; /* Verde más oscuro */
+  transform: scale(1.05); /* Efecto de escala */
+}
+
+/* Estilos para el mensaje del cupón */
+#cupon-mensaje {
+  font-size: 20px;
+  color: #333;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: none; /* Oculto por defecto, mostrarlo cuando sea necesario */
+}
+

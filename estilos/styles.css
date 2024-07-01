@@ -89,7 +89,7 @@ body {
 .producto-en-carrito .eliminar-producto{
     font-size: 15px;
     border-radius: 2px;
-    background-color: #d60000 !important;
+    background-color: #d9534f !important;
     border: none;
 }
 .producto-en-carrito {
@@ -343,7 +343,7 @@ nav ul li a:hover {
     height: 200px;
     padding: 35px;
     margin-top: 20px;
-    color: #ccc;
+    color: #ffffff;
     font-family:Georgia, 'Times New Roman', Times, serif;
     display: block;
    

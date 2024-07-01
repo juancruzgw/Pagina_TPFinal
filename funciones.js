@@ -1,6 +1,6 @@
 
 //
-/*** MODO CLARO / MODO OSCURO */ // ALTERNA  
+/*** MODO CLARO / MODO OSCURO */ // 
 document.addEventListener('DOMContentLoaded', function() {
     var temaGuardado = localStorage.getItem('tema');
     if (temaGuardado === 'oscuro') {
@@ -27,52 +27,12 @@ function toggleMode() {
         imagen.src = "../imagenes/night1.png";
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
-        localStorage.setItem('tema', 'claro');
+       localStorage.setItem('tema', 'claro');
         carrito.style.backgroundImage = 'url(../imagenes/carritoblanco.png)';
 
     }
 }
 
-// Aplicar el tema guardado al cargar la página ///   NO FUNCIONA :( 
-
-//
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    var temaGuardado = localStorage.getItem('tema');
-    var body = document.body;
-    var imagen = document.getElementById("noche");
-    var carrito = document.querySelector('.product button');
-
-    if (temaGuardado === 'oscuro') {
-        body.classList.add('dark-mode');
-        imagen.src = "imagenes/day1.png";
-        carrito.style.backgroundImage = 'url(imagenes/carritomas.png)';
-    } else {
-        body.classList.add('light-mode');
-        imagen.src = "imagenes/night1.png";
-        carrito.style.backgroundImage = 'url(imagenes/carritoblanco.png)';
-    }
-});
-
-function toggleMode() {
-    var body = document.body;
-    var imagen = document.getElementById("noche");
-    var carrito = document.querySelector('.product button');
-    
-    if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        imagen.src = "imagenes/day1.png";
-        localStorage.setItem('tema', 'oscuro');
-        carrito.style.backgroundImage = 'url(imagenes/carritomas.png)';
-    } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        imagen.src = "imagenes/night1.png";
-        localStorage.setItem('tema', 'claro');
-        carrito.style.backgroundImage = 'url(imagenes/carritoblanco.png)';
-    }
-}*/
 /////
 
 // LINKS A PAGINAS
@@ -197,7 +157,7 @@ const carritoContenedor = document.getElementById("carrito-contendor"); // todo 
 const cuponInput = document.getElementById("cupon-input"); // input del cupon, (en pagina finalizaCompra.html)
 const aplicarCuponBtn = document.getElementById("aplicar-cupon-btn"); // boton de aplicar cupon
 const cuponMensaje = document.getElementById("cupon-mensaje"); //mensaje si se aplico el cupon
-const finalizarCompraBtn = document.getElementById("finalizar-compra-btn"); // finaliza compra
+const finalizarCompraBtn = document.getElementById("finalizar-compra-btn"); // finaliza compra boton 
 const mensajeFinalizarCompra = document.getElementById("mensaje-finalizar-compra");
 
 const carrito = document.getElementById("cart"); //donde se van acumulando los productos
@@ -223,24 +183,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // FUNCION DE AGREGAR EL PRODUCTO
-
 function agregarProducto(nombreProducto, precioProducto, imagenURL) {
     let productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let productoYaEnCarrito = false;
 
-    if (productosEnCarrito.some(producto => producto.nombre === nombreProducto)) {
-        cuponInput.style.backgroundColor = "lightcoral";
-        //SI ENTRA, ES PORQUE YA EXISTE ESE PROD EN EL CARRITO
-        alert("Este curso ya esta agregado al carrito");
-        
-        return;
+    // Recorrer el carrito para verificar si el producto ya está presente
+    for (let i = 0; i < productosEnCarrito.length; i++) {
+        if (productosEnCarrito[i].nombre === nombreProducto) {
+            productoYaEnCarrito = true;
+        }
     }
-    // push, agrego el obj al carrito de productosEnCarrito[], 
-    productosEnCarrito.push({  nombre: nombreProducto, 
-                                precio: precioProducto, 
-                                imagen: imagenURL });// aca se crea el obj
-         // actualizo el local storage para que quede guardado                       
-    localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
-    actualizarCarrito();
+
+    // Verificar si el producto ya está en el carrito
+    if (productoYaEnCarrito) {
+        alert("Este curso ya está agregado al carrito");
+    } else {
+        // Agregar el nuevo producto al carrito
+        productosEnCarrito.push({
+            nombre: nombreProducto,
+            precio: precioProducto,
+            imagen: imagenURL
+        });
+        // Actualizar el local storage para que quede guardado
+        localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
+        actualizarCarrito();
+    }
 }
 
 function actualizarCarrito() {
@@ -275,12 +242,19 @@ function actualizarCarrito() {
 
 function eliminarProducto(nombreProducto) {
     let productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let nuevoCarrito = [];
 
-    productosEnCarrito = productosEnCarrito.filter(producto => producto.nombre !== nombreProducto);
-    localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
+    for (let i = 0; i < productosEnCarrito.length; i++) {
+        if (productosEnCarrito[i].nombre !== nombreProducto) {
+            nuevoCarrito.push(productosEnCarrito[i]);
+        }
+    }
+    localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
     actualizarCarrito();
 }
-// CHEQUEA SI PUSO EL CUPON //
+
+
+/// CUPON DE DESCUENTO
 if (aplicarCuponBtn) {
     aplicarCuponBtn.addEventListener("click", function() {
         const cupon = cuponInput.value.trim();
@@ -290,16 +264,16 @@ if (aplicarCuponBtn) {
                 total *= 0.8; // Aplica descuento del 20%
                 descuentoAplicado = true;
                 totalElement.textContent = total;
-                cuponInput.style.backgroundColor = "lightgreen";
+                cuponMensaje.style.backgroundColor = "lightgreen";
                 cuponMensaje.textContent = "Descuento aplicado del 20% por cupón PRIMERCOMPRA.";
                 cuponMensaje.style.display = "block";
             } else {
-                cuponInput.style.backgroundColor = "lightcoral";
+                cuponMensaje.style.backgroundColor = "lightcoral";
                 cuponMensaje.textContent = "El cupón PRIMERCOMPRA ya ha sido aplicado.";
                 cuponMensaje.style.display = "block";
             }
         } else {
-            cuponInput.style.backgroundColor = "lightcoral";
+            cuponMensaje.style.backgroundColor = "lightcoral";
             cuponMensaje.textContent = "Cupón inválido. Intente de nuevo.";
             cuponMensaje.style.display = "block";
         }
@@ -307,11 +281,10 @@ if (aplicarCuponBtn) {
         // Limpiar campo de cupón después de aplicarlo
         cuponInput.value = "";
     });
-} else {
-    console.error('Elemento "aplicar-cupon-btn" no encontrado.');
-}
+} 
 // ESTO ES PARA EL INDEX.HTML
 function finalizarCompra() {
+    // esto se encarga de no confirmar compra con el carrito vacio, si hay aunque sea 1 te manda a la pag de 'finalizaCompra.html'
     let productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
     if (productosEnCarrito.length === 0) {
         mensajeFinalizarCompra.textContent = "No hay productos en el carrito. Agregue productos para realizar la compra.";
@@ -360,11 +333,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     totalElement.textContent = total;
 
-    document.getElementById('confirmar-compra-btn').addEventListener('click', () => {
+    /*document.getElementById('confirmar-compra-btn').addEventListener('click', () => {
         alert('Compra confirmada. ¡Gracias por tu compra!');
         localStorage.removeItem('carrito');
         window.location.href = 'index.html';
-    });
+    });*/
 });
 
 
@@ -431,50 +404,55 @@ function reiniciarJuego() {
     });
 
 
-// valido el confirmar compra (4) campos nomas
-
-// Obtener referencias a los elementos del formulario
-const nombreTitularInput = document.getElementById('nombre-titular');
-const numeroTarjetaInput = document.getElementById('numero-tarjeta');
-const fechaVencimientoInput = document.getElementById('fecha-vencimiento');
-const confirmarCompraBtn = document.getElementById('confirmar-compra-btn');
-
-// Agregar evento al botón de confirmar compra para validar el formulario
-confirmarCompraBtn.addEventListener('click', function(event) {
-    // Validación del nombre del titular
-    if (nombreTitularInput.value.trim() === '') {
-        alert('Por favor, ingresa el nombre del titular.');
-        event.preventDefault(); // Evitar que se envíe el formulario
-        return;
+    const nombreTitularInput = document.getElementById('nombre-titular');
+    const numeroTarjetaInput = document.getElementById('numero-tarjeta');
+    //const fechaVencimientoInput = document.getElementById('fecha-vencimiento');
+    const metodoPagoInput = document.getElementById('metodoPago');
+    const confirmarCompraBtn = document.getElementById('confirmar-compra-btn');
+    const mensajeCompraRealizada = document.getElementById('mensaje-compra-realizada');
+    
+    confirmarCompraBtn.addEventListener('click', function(event) {
+        let esValido = true;
+    
+       
+        if (nombreTitularInput.value.trim() === '') {
+            nombreTitularInput.style.backgroundColor = "lightcoral";
+            esValido = false;
+        } else {
+            nombreTitularInput.style.backgroundColor = "";
+        }
+    
+    
+        const numeroTarjeta = numeroTarjetaInput.value.trim();
+        if (numeroTarjeta.length !== 16 || isNaN(numeroTarjeta)) {
+            numeroTarjetaInput.style.backgroundColor = "lightcoral";
+            esValido = false;
+        } else {
+            numeroTarjetaInput.style.backgroundColor = "";
+        }
+    
+        
+        const opcionesPago = document.getElementById('opcionesPago').getElementsByTagName('option');
+        let metodoPagoValido = false;
+        for (let i = 0; i < opcionesPago.length; i++) {
+            if (opcionesPago[i].value === metodoPagoInput.value) {
+                metodoPagoValido = true;
+                break;
+            }
+        }
+        if (!metodoPagoValido) {
+            metodoPagoInput.style.backgroundColor = "lightcoral";
+            esValido = false;
+        } else {
+            metodoPagoInput.style.backgroundColor = "";
+        }
+    
+       
+        if (!esValido) {
+            event.preventDefault();
+        } else  {
+           window.location.href = "index.html";
+           localStorage.removeItem('carrito');
+           alert("compra realizada");
     }
-
-    // Validación del número de tarjeta (debe contener solo dígitos y tener longitud 16)
-    const numeroTarjeta = numeroTarjetaInput.value.trim();
-    if (!/^\d{16}$/.test(numeroTarjeta)) {
-        alert('Por favor, ingresa un número de tarjeta válido (16 dígitos numéricos).');
-        event.preventDefault(); // Evitar que se envíe el formulario
-        return;
-    }
-
-    // Validación de la fecha de vencimiento (debe tener el formato MM/AA)
-    const fechaVencimiento = fechaVencimientoInput.value.trim();
-    if (!/^\d{2}\/\d{2}$/.test(fechaVencimiento)) {
-        alert('Por favor, ingresa una fecha de vencimiento válida en formato MM/AA.');
-        event.preventDefault(); // Evitar que se envíe el formulario
-        return;
-    }
-
-    // Separar mes y año para validar
-    const partesFecha = fechaVencimiento.split('/');
-    const mes = parseInt(partesFecha[0], 10);
-    const año = parseInt(partesFecha[1], 10);
-
-    if (isNaN(mes) || isNaN(año) || mes < 1 || mes > 12 || año < 0 || año > 99) {
-        alert('Por favor, ingresa una fecha de vencimiento válida en formato MM/AA.');
-        event.preventDefault(); // Evitar que se envíe el formulario
-        return;
-    }
-
-    // Si todas las validaciones pasan, el formulario se enviará
-    alert('¡Compra confirmada!');
-});
+    });
