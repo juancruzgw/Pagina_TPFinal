@@ -841,6 +841,7 @@ body.dark-mode nav *{
   border-radius: 5px;
   width: 80% ;
   box-sizing: border-box;
+  color: #000000;
 }
 
 #aplicar-cupon-btn {
