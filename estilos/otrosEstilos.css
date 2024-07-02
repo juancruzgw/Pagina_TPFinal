@@ -871,11 +871,11 @@ body.dark-mode nav *{
 }
 
 #aplicar-cupon-btn:hover {
-  background-color: #359439; /* Verde más oscuro */
-  transform: scale(1.05); /* Efecto de escala */
+  background-color: #359439; 
+  transform: scale(1.05); 
 }
 
-/* Estilos para el mensaje del cupón */
+
 #cupon-mensaje {
   font-size: 20px;
   color: #333;
@@ -884,6 +884,6 @@ body.dark-mode nav *{
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f9f9f9;
-  display: none; /* Oculto por defecto, mostrarlo cuando sea necesario */
+  display: none; 
 }
 

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("noche").src = "../imagenes/night1.png";
     }
 });
-function toggleMode() {
+function cambioModo () {
     var body = document.body;
     var imagen = document.getElementById("noche");
     var carrito = document.querySelector('.product button');
@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         css.addEventListener("click", irAcss);
         js.addEventListener("click", irAjs);
         html.addEventListener("click", irAhtml);
-    } else {
+    } /*else {
         console.error('Uno o más elementos no fueron encontrados.');
-    }
+    }*/
 });
 
 function irAjs() {
@@ -82,6 +82,7 @@ function validarFormularioConsulta() {
        // alert("Por favor, complete todos los campos.");
         enviado.textContent = "Por favor, complete todos los campos.❌";
         enviado.style.color = "red"; 
+        
         respuesta = false;
         /// pinto el fondo segun cual es el campo que quedo vacio
         if (nombre.value ===""){
@@ -112,11 +113,11 @@ function validarFormularioConsulta() {
        email.style.backgroundColor = "lightcoral";
         respuesta = false;
     } else{
-        //limpio formulario
+        
         email.style.background = "";
     }
     
-    // Verificar que se haya seleccionado una opción de radio
+    
     var radioSi = document.getElementById("radio-si");
     var radioNo = document.getElementById("radio-no");
     
@@ -141,6 +142,7 @@ function validarFormularioConsulta() {
     if (respuesta){
         enviado.textContent = "Se envio todo correctamente.✅"
         enviado.style.color = "rgb(41, 210, 41)"
+       
     }
 }
 
@@ -166,7 +168,7 @@ let total = 0;
 let descuentoAplicado = false;
 
 
-// 2 CARGO LOS ELEMENTOS DEL DOM
+// 2 CARGO LOS ELEMENTOS DEL DOM (sin esto se me rompia) DOMContentLoaded
 
 document.addEventListener('DOMContentLoaded', function() {
     if (botonCarrito && carritoContenedor) {
@@ -328,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="producto-precio">$${producto.precio}</span>
         </div>
     `;
-        productosContainer.appendChild(productoElement);
+        productosContainer.appendChild(productoElement); // 
     });
 
     totalElement.textContent = total;
@@ -348,12 +350,12 @@ document.addEventListener('DOMContentLoaded', function() {
 //// contactos abrir y cerrar modal/solapa
 
 function abrirModal() {
-    document.getElementById('modalContacto').style.display = 'block';
-    document.getElementById('modalBackdrop').style.display = 'block';
+    document.getElementById('modalContacto').style.display = 'block'; // lo muestra
+    document.getElementById('modalBackdrop').style.display = 'block'; // lo muestra
 }
 function cerrarModal() {
-    document.getElementById('modalContacto').style.display = 'none';
-    document.getElementById('modalBackdrop').style.display = 'none';
+    document.getElementById('modalContacto').style.display = 'none'; // lo oculta
+    document.getElementById('modalBackdrop').style.display = 'none';// lo oculta
 }
 
 /// juego en js de adivinar el numero
@@ -403,6 +405,8 @@ function reiniciarJuego() {
         } 
     });
 
+
+    // validacion del confirmar compra
 
     const nombreTitularInput = document.getElementById('nombre-titular');
     const numeroTarjetaInput = document.getElementById('numero-tarjeta');
