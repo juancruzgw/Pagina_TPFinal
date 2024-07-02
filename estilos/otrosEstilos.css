@@ -37,8 +37,6 @@ body.dark-mode nav *{
 
 
 
-
-
 /* HTML */
 #htmlinfo {
 
@@ -47,7 +45,7 @@ body.dark-mode nav *{
         height: 200px;
         padding: 35px;
         margin-top: 20px;
-        color: #ccc;
+        color: #ffffff;
         font-family: italic;
         display: flex;
         justify-content: space-around;
@@ -71,9 +69,11 @@ body.dark-mode nav *{
 }
 
 #main {
-   
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.463);
+  height: 750px;
+  border-radius: 15px;
     width: 80%;
-    color: rgb(219, 219, 219);
+    color: rgb(255, 255, 255);
     padding: 50px;
     margin: auto;
     display: flex;
@@ -110,10 +110,15 @@ section li:hover {
    
 }
 #dato {
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.463);
+  padding: 20px;
+  width: 80%;
+  border-radius: 15px;
     display: flex;
     justify-content: space-around;
     color: white;
     font-size: 25px;
+    margin: auto;
     margin-top: 40px;
 }
 #dato img {
@@ -125,6 +130,7 @@ section li:hover {
 }
 #dato2  {
   padding: 30px;
+  
 
 }
 #dato2 img {
@@ -136,6 +142,10 @@ section li:hover {
   font-size: 30px;
 }
 #tipos {
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.463);
   width: 80%;
   margin: auto;
   display: flex;
@@ -442,7 +452,7 @@ body.dark-mode nav *{
     display: flex;
     padding: 30px;
     margin: 30px auto;
-   
+
     justify-content: space-around;
 }
 
@@ -465,7 +475,7 @@ body.dark-mode nav *{
 /* MINI JUEGO EN JS*/
 .game-container {
     text-align: center;
-   
+   box-shadow: 0 0 16px rgba(0, 0, 0, 0.463); 
     border-radius: 15px;
     margin: auto;
     width: 80%;
@@ -538,7 +548,7 @@ body.dark-mode nav *{
   /** otro mini juego*/
  
   #otroJuego {
-    
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.463); 
     height: 800px;
     width: 80%;
     margin: 40px auto;
@@ -567,6 +577,7 @@ body.dark-mode nav *{
     width: 100px;
     height: 100px;
     background-color: rgba(158, 0, 0, 0.623);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.721); 
     transition: width 0.2s, height 0.2s;
     border: 3px solid color black;
     border-radius: 3px; /* Para una transición suave */

@@ -450,9 +450,11 @@ function reiniciarJuego() {
        
         if (!esValido) {
             event.preventDefault();
-        } else  {
-           window.location.href = "index.html";
-           localStorage.removeItem('carrito');
-           alert("compra realizada");
-    }
+        } else {
+            alert("Compra realizada");
+            localStorage.removeItem('carrito');
+            setTimeout(function() {
+                window.location.assign("index.html");
+            }, 100); 
+        }
     });
